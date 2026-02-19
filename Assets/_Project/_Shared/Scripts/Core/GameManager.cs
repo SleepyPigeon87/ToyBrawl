@@ -162,7 +162,7 @@ namespace Brawler.Core
             int winnerIndex = args.PlayerIndex == 0 ? 1 : 0;
 
             // TODO STEP 4: End the round
-            /StartCoroutine(EndRoundCoroutine(winnerIndex));
+            StartCoroutine(EndRoundCoroutine(winnerIndex));
         }
 
         
