@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77dfd4c451cbc374aa5ad239bf9e40e0, type: 3}
+  m_Name: MovementConfig
+  m_EditorClassIdentifier: 
+  maxSpeed: 8
+  acceleration: 60
+  deceleration: 60
+  turnAroundMultiplier: 1.5
+  airControlMultiplier: 0.85
+  jumpForce: 14
+  jumpCutMultiplier: 0.5
+  coyoteTime: 0.12
+  gravityScale: 1
+  fallGravityMultiplier: 1.6
+  groundCheckDistance: 0.1
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
