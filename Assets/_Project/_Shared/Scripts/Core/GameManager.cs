@@ -55,7 +55,7 @@ namespace Brawler.Core
         private void Start()
         {
             // TODO STEP 1: Subscribe to GameEvents.OnFighterKO
-            // GameEvents.OnFighterKO += OnFighterKO;
+            GameEvents.OnFighterKO += OnFighterKO;
 
             // Auto-start match if fighters are assigned
             if (fighters != null && fighters.Length >= 2 && fighters[0] != null && fighters[1] != null)
@@ -72,7 +72,7 @@ namespace Brawler.Core
             }
 
             // TODO: Unsubscribe from events
-            // GameEvents.OnFighterKO -= OnFighterKO;
+            GameEvents.OnFighterKO -= OnFighterKO;
         }
 
         /// <summary>
@@ -120,22 +120,20 @@ namespace Brawler.Core
             Log($"Round {CurrentRound} starting!");
 
             // TODO STEP 2: Position fighters at spawn points
-            // for (int i = 0; i < fighters.Length; i++)
-            // {
-            //     if (fighters[i] != null && spawnPoints[i] != null)
-            //     {
-            //         fighters[i].Respawn(spawnPoints[i].Position);
-            //     }
-            // }
+            for (int i = 0; i < fighters.Length; i++) {
+                if (fighters[i] != null && spawnPoints[i] != null)  {
+                    fighters[i].Respawn(spawnPoints[i].Position);
+                }
+            }
 
             // TODO STEP 3: Start countdown
-            // SetState(GameState.Countdown);
-            // StartCoroutine(CountdownCoroutine());
+            SetState(GameState.Countdown);
+            StartCoroutine(CountdownCoroutine());
         }
 
-        /*
-         * TODO STEP 3: Implement countdown coroutine
-         *
+        
+        //TODO STEP 3: Implement countdown coroutine
+         
         private IEnumerator CountdownCoroutine()
         {
             // Fire round start event (for UI)
@@ -147,7 +145,7 @@ namespace Brawler.Core
             // Start fighting!
             SetState(GameState.Fighting);
         }
-        */
+        
 
         /// <summary>
         /// Called when a fighter is KO'd.
@@ -164,12 +162,12 @@ namespace Brawler.Core
             int winnerIndex = args.PlayerIndex == 0 ? 1 : 0;
 
             // TODO STEP 4: End the round
-            // StartCoroutine(EndRoundCoroutine(winnerIndex));
+            /StartCoroutine(EndRoundCoroutine(winnerIndex));
         }
 
-        /*
-         * TODO STEP 4: Implement end round coroutine
-         *
+        
+         //TODO STEP 4: Implement end round coroutine
+         
         private IEnumerator EndRoundCoroutine(int roundWinner)
         {
             SetState(GameState.RoundEnd);
@@ -185,13 +183,10 @@ namespace Brawler.Core
             yield return new WaitForSeconds(matchConfig.roundEndDelay);
 
             // TODO STEP 5: Check win condition
-            // CheckMatchEnd(roundWinner);
+            CheckMatchEnd(roundWinner);
         }
-        */
 
-        /*
-         * TODO STEP 5: Implement win condition check
-         *
+        //TODO STEP 5: Implement win condition check
         private void CheckMatchEnd(int lastRoundWinner)
         {
             // Check if someone has won enough rounds
@@ -206,7 +201,6 @@ namespace Brawler.Core
                 StartRound();
             }
         }
-        */
 
         /// <summary>
         /// End the match with a winner.

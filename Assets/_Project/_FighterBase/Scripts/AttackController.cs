@@ -84,9 +84,9 @@ namespace Brawler.Fighter
                 hitboxObj.transform.SetParent(transform);
                 hitboxObj.transform.localPosition = Vector3.zero;
                 hitboxObj.layer = gameObject.layer;
-
-                hitbox = hitboxObj.AddComponent<Hitbox>();
                 hitboxObj.AddComponent<BoxCollider2D>();
+                hitbox = hitboxObj.AddComponent<Hitbox>();
+              
             }
         }
 

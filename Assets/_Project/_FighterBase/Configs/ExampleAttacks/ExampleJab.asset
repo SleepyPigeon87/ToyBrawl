@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b4de7f53d4a126d40bae94e48bd75560, type: 3}
-  m_Name: Jab
+  m_Name: ExampleJab
   m_EditorClassIdentifier: 
   attackName: Jab
-  damage: 10
-  baseKnockback: 5
-  knockbackAngle: {x: 1, y: 0.5}
+  damage: 8
+  baseKnockback: 4
+  knockbackAngle: {x: 1, y: 0.3}
   startupFrames: 3
-  activeFrames: 5
+  activeFrames: 4
   recoveryFrames: 10
-  hitstunDuration: 0.2
-  hitstopDuration: 0.05
-  hitboxOffset: {x: 0.5, y: 0}
-  hitboxSize: {x: 1, y: 1}
-  context: 0
+  hitstunDuration: 0.15
+  hitstopDuration: 0.04
+  hitboxOffset: {x: 0.6, y: 0}
+  hitboxSize: {x: 0.5, y: 0.4}
+  context: 3
   attackSound: {fileID: 0}
   hitSound: {fileID: 0}
   animationTrigger: Attack
