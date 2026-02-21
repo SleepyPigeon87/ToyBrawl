@@ -91,6 +91,7 @@ namespace Brawler.Combat
         Neutral,        // No directional input
         Forward,        // Forward input
         Up,             // Up input
-        Down            // Down input
+        Down,            // Down input
+        Grab            // Grab input 
     }
 }

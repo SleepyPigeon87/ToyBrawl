@@ -38,6 +38,9 @@ namespace Brawler.Fighter
         [Tooltip("Default attack used in the air.")]
         [SerializeField] private AttackData aerialAttack;
 
+        [Tooltip("Default grab.")]
+        [SerializeField] private AttackData grabAction;
+
         [Header("Hitbox")]
         [Tooltip("The hitbox component used for attacks. If null, one will be created.")]
         [SerializeField] private Hitbox hitbox;
