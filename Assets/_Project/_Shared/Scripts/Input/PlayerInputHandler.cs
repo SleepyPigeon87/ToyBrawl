@@ -31,7 +31,7 @@ namespace Brawler.Input
         public Vector2 MoveInput { get; private set; }
         public bool JumpBuffered => jumpBufferTimer > 0f;
         public bool JumpHeld { get; private set; }
-        public bool DashBuffered => dashBufferTimer > 0f;
+        //public bool DashBuffered => dashBufferTimer > 0f;
         public bool AttackBuffered => attackBufferTimer > 0f;
         public bool SpecialBuffered => specialBufferTimer > 0f;
         public bool UsingGamepad { get; private set; }
@@ -40,15 +40,16 @@ namespace Brawler.Input
         // Input action references
         private InputAction moveAction;
         private InputAction jumpAction;
-        private InputAction dashAction;
-        private InputAction attackAction;
-        private InputAction specialAction;
+        private InputAction lightAttackAction;
+        private InputAction ultimateAction;
+        private InputAction grabTossAction;
+        private InputAction dodgeRollAction;
 
         // Buffer timers
         private float jumpBufferTimer;
-        private float dashBufferTimer;
+        //private float dashBufferTimer;
         private float attackBufferTimer;
-        private float specialBufferTimer;
+        private float ultimateBufferTimer;
 
         // Raw input for debugging
         private Vector2 rawMoveInput;
@@ -139,15 +140,16 @@ namespace Brawler.Input
 
             moveAction = playerMap.FindAction("Move");
             jumpAction = playerMap.FindAction("Jump");
-            dashAction = playerMap.FindAction("Dash");
-            attackAction = playerMap.FindAction("Attack");
-            specialAction = playerMap.FindAction("Special");
+            lightAttackAction = playerMap.FindAction("LightAttack");
+            ultimateAction = playerMap.FindAction("Ultimate");
+            grabTossAction = playerMap.FindAction("GrabToss");
+            dodgeRollAction = playerMap.FindAction("DodgeRoll");
 
             if (moveAction == null)
                 Debug.LogError($"[PlayerInputHandler P{playerIndex}] 'Move' action not found!", this);
             if (jumpAction == null)
                 Debug.LogError($"[PlayerInputHandler P{playerIndex}] 'Jump' action not found!", this);
-            if (attackAction == null)
+            if (lightattackAction == null)
                 Debug.LogWarning($"[PlayerInputHandler P{playerIndex}] 'Attack' action not found. Add it for combat.", this);
         }
 
@@ -157,9 +159,10 @@ namespace Brawler.Input
 
             moveAction.Enable();
             jumpAction?.Enable();
-            dashAction?.Enable();
-            attackAction?.Enable();
-            specialAction?.Enable();
+            ultimateAction?.Enable();
+            lightAttackAction?.Enable();
+            dodgeRollAction?.Enable();
+            grabTossAction?.Enable();
 
             // Subscribe to button events
             if (jumpAction != null)
@@ -168,20 +171,29 @@ namespace Brawler.Input
                 jumpAction.canceled += OnJumpCanceled;
             }
 
-            if (dashAction != null)
+           /* if (dashAction != null)
             {
                 dashAction.performed += OnDashPerformed;
+            }*/
+
+            if (lightAttackAction != null)
+            {
+                lightAttackAction.performed += OnAttackPerformed;
             }
 
-            if (attackAction != null)
+            if (ultimateAction != null)
             {
-                attackAction.performed += OnAttackPerformed;
+                ultimateAction.performed += OnUpdatePerformed;
             }
 
-            if (specialAction != null)
-            {
-                specialAction.performed += OnSpecialPerformed;
+            if (dodgeRollAction != null) {
+                dodgeRollAction.performed += OnDodgeRollPerformed;
             }
+
+            if (grabTossAction != null) {
+                grabTossAction.performed += OnGrabTossPerformed;
+            }
+
 
             InputSystem.onActionChange += OnActionChange;
         }
