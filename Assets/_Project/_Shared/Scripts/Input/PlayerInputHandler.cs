@@ -27,13 +27,21 @@ namespace Brawler.Input
         [Tooltip("Input configuration for deadzones and buffering.")]
         [SerializeField] private InputConfig config;
 
+        // Buffer timers
+        private float jumpBufferTimer;
+        //private float dashBufferTimer;
+        private float attackBufferTimer;
+        private float ultimateBufferTimer;
+        private float specialBufferTimer; 
+
+
         // Processed input state (read by FighterMovement/AttackController)
         public Vector2 MoveInput { get; private set; }
         public bool JumpBuffered => jumpBufferTimer > 0f;
         public bool JumpHeld { get; private set; }
         //public bool DashBuffered => dashBufferTimer > 0f;
         public bool AttackBuffered => attackBufferTimer > 0f;
-        public bool SpecialBuffered => specialBufferTimer > 0f;
+        public bool SpecialBuffered => ultimateBufferTimer > 0f;
         public bool UsingGamepad { get; private set; }
         public int PlayerIndex => playerIndex;
 
@@ -44,12 +52,6 @@ namespace Brawler.Input
         private InputAction ultimateAction;
         private InputAction grabTossAction;
         private InputAction dodgeRollAction;
-
-        // Buffer timers
-        private float jumpBufferTimer;
-        //private float dashBufferTimer;
-        private float attackBufferTimer;
-        private float ultimateBufferTimer;
 
         // Raw input for debugging
         private Vector2 rawMoveInput;
@@ -149,7 +151,7 @@ namespace Brawler.Input
                 Debug.LogError($"[PlayerInputHandler P{playerIndex}] 'Move' action not found!", this);
             if (jumpAction == null)
                 Debug.LogError($"[PlayerInputHandler P{playerIndex}] 'Jump' action not found!", this);
-            if (lightattackAction == null)
+            if (lightAttackAction == null)
                 Debug.LogWarning($"[PlayerInputHandler P{playerIndex}] 'Attack' action not found. Add it for combat.", this);
         }
 
@@ -183,7 +185,7 @@ namespace Brawler.Input
 
             if (ultimateAction != null)
             {
-                ultimateAction.performed += OnUpdatePerformed;
+                ultimateAction.performed += OnUltimatePerformed;
             }
 
             if (dodgeRollAction != null) {
@@ -208,28 +210,29 @@ namespace Brawler.Input
                 jumpAction.canceled -= OnJumpCanceled;
             }
 
-            if (dashAction != null)
+            //if (dashAction != null) {
+            //    dashAction.performed -= OnDashPerformed;
+            //}
+
+            if (lightAttackAction != null)
             {
-                dashAction.performed -= OnDashPerformed;
+                lightAttackAction.performed -= OnAttackPerformed;
             }
 
-            if (attackAction != null)
+            if (ultimateAction != null)
             {
-                attackAction.performed -= OnAttackPerformed;
-            }
-
-            if (specialAction != null)
-            {
-                specialAction.performed -= OnSpecialPerformed;
+                ultimateAction.performed -= OnSpecialPerformed;
             }
 
             InputSystem.onActionChange -= OnActionChange;
 
             moveAction?.Disable();
             jumpAction?.Disable();
-            dashAction?.Disable();
-            attackAction?.Disable();
-            specialAction?.Disable();
+            ultimateAction?.Disable();
+            lightAttackAction?.Disable();
+            dodgeRollAction?.Disable();
+            grabTossAction?.Disable();
+
         }
 
         private void CleanupInputActions()
@@ -278,17 +281,17 @@ namespace Brawler.Input
             jumpBufferTimer = 0f;
         }
 
-        // Dash
-        private void OnDashPerformed(InputAction.CallbackContext context)
-        {
-            float bufferDuration = config != null ? config.dashBufferDuration : 0.08f;
-            dashBufferTimer = bufferDuration;
-        }
+        //// Dash
+        //private void OnDashPerformed(InputAction.CallbackContext context)
+        //{
+        //    float bufferDuration = config != null ? config.dashBufferDuration : 0.08f;
+        //    dashBufferTimer = bufferDuration;
+        //}
 
-        public void ConsumeDashBuffer()
-        {
-            dashBufferTimer = 0f;
-        }
+        //public void ConsumeDashBuffer()
+        //{
+        //    dashBufferTimer = 0f;
+        //}
 
         // Attack
         private void OnAttackPerformed(InputAction.CallbackContext context)
@@ -319,8 +322,8 @@ namespace Brawler.Input
             if (jumpBufferTimer > 0f)
                 jumpBufferTimer -= Time.deltaTime;
 
-            if (dashBufferTimer > 0f)
-                dashBufferTimer -= Time.deltaTime;
+            /*if (dashBufferTimer > 0f)
+                dashBufferTimer -= Time.deltaTime;*/
 
             if (attackBufferTimer > 0f)
                 attackBufferTimer -= Time.deltaTime;
@@ -348,6 +351,26 @@ namespace Brawler.Input
             {
                 UsingGamepad = device is Gamepad;
             }
+        }
+
+        private void OnUltimatePerformed(InputAction.CallbackContext context) {
+            float bufferDuration = config != null ? config.attackBufferDuration : 0.1f;
+            ultimateBufferTimer = bufferDuration;
+        }
+
+        public void ConsumeUltimateBuffer(InputAction.CallbackContext context) {
+            ultimateBufferTimer = 0f;
+        }
+
+        public void OnDodgeRollPerformed(InputAction.CallbackContext context) {
+            //DodgeRoll here
+
+
+        }
+
+        public void OnGrabTossPerformed(InputAction.CallbackContext context) {
+            //GrabToss here
+
         }
 
         private void OnDrawGizmosSelected()

@@ -50,13 +50,16 @@ namespace Brawler.Fighter
         public bool IsGrounded { get; protected set; }
 
         /// <summary>True if the fighter can currently act (not in hitstun, etc.).</summary>
-        public bool CanAct => !Knockback.IsInHitstun && !IsDead && !IsRespawning;
+        public bool CanAct => !Knockback.IsInHitstun && !IsDead && !IsRespawning && !IsGrabbed;
 
         /// <summary>True if health is zero.</summary>
         public bool IsDead => Health.IsDead;
 
         /// <summary>True during respawn invincibility.</summary>
         public bool IsRespawning { get; protected set; }
+
+        //True if fighter is being held
+        public bool IsGrabbed { get; protected set; }
 
         // Component references
         protected Rigidbody2D Rb { get; private set; }
@@ -258,6 +261,43 @@ namespace Brawler.Fighter
             {
                 HitstopManager.Instance.TriggerHitstop(attack.hitstopDuration);
             }
+        }
+
+        /// <summary>
+        /// Called when an opponent successfully lands a grab attack on this fighter.
+        /// </summary>
+        public virtual void GetGrabbedBy(FighterBase attacker) {
+            IsGrabbed = true;
+            if (Attacks != null) Attacks.CancelAttack();
+            Rb.linearVelocity = Vector2.zero;
+
+            //Float in hands, turn grav back on later
+            // Rb.gravityScale = 0f; 
+
+            //Snap to attacker's position
+            float grabDistance = 1.0f;
+            Vector2 holdPosition = attacker.transform.position;
+            holdPosition.x += (grabDistance * attacker.FacingDirection);
+            transform.position = holdPosition;
+
+            //Fire event Animations!)
+            OnGrabbedInternal(attacker);
+        }
+
+        /// <summary>Called when the fighter is grabbed by an opponent.</summary>
+        protected virtual void OnGrabbedInternal(FighterBase attacker) {
+        
+        
+        }
+
+        /// <summary>
+        /// Releases the fighter from a grabbed state.
+        /// </summary>
+        public virtual void ReleaseGrab() {
+            IsGrabbed = false;
+
+            // If you disabled gravity in GetGrabbedBy, turn it back to 1f here!
+            // Rb.gravityScale = 1f;
         }
     }
 }

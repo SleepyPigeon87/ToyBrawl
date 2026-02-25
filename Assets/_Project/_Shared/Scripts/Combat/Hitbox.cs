@@ -29,6 +29,9 @@ namespace Brawler.Combat
         [SerializeField] private Color activeColor = new Color(1f, 0f, 0f, 0.5f);
         [SerializeField] private Color inactiveColor = new Color(0.5f, 0f, 0f, 0.2f);
 
+        /// <summary>The opponent currently being held. Null if not holding anyone.</summary>
+        public FighterBase HeldOpponent { get; private set; }
+
         /// <summary>The fighter that owns this hitbox.</summary>
         public FighterBase Owner { get; private set; }
 
@@ -91,29 +94,31 @@ namespace Brawler.Combat
             attackData = null;
         }
 
-        private void OnTriggerEnter2D(Collider2D other)
-        {
+        private void OnTriggerEnter2D(Collider2D other) {
             if (!IsActive || attackData == null) return;
 
-            // Check for hurtbox
             var hurtbox = other.GetComponent<Hurtbox>();
             if (hurtbox == null) return;
-
-            // Don't hit self or unowned hurtboxes
             if (hurtbox.Owner == null || hurtbox.Owner == Owner) return;
 
-            // Don't hit the same fighter twice with one attack
             int targetId = hurtbox.Owner.GetInstanceID();
             if (hitFighters.Contains(targetId)) return;
-
-            // Register hit
             hitFighters.Add(targetId);
+            if (attackData.isGrab) {
+                // 1. Tell the hurtbox it got grabbed (freezes the defender)
+                hurtbox.OnGrabbed(Owner);
 
-            // Notify hurtbox
-            hurtbox.OnHit(this, attackData, Owner.FacingDirection);
+                // 2. Look for the AttackController on the Attacker and trigger the success method
+                var attackerController = Owner.GetComponent<AttackController>();
+                if (attackerController != null) {
+                    attackerController.OnGrabSuccess(hurtbox.Owner);
+                }
 
-            // Notify owner
-            Owner.OnAttackHit(hurtbox.Owner, attackData);
+                Debug.Log($"{Owner.name} successfully GRABBED {hurtbox.Owner.name}!");
+            } else {
+                hurtbox.OnHit(this, attackData, Owner.FacingDirection);
+                Owner.OnAttackHit(hurtbox.Owner, attackData);
+            }
         }
 
         private void OnDrawGizmos()

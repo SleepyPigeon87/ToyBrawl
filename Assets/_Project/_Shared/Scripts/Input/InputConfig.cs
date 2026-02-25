@@ -18,10 +18,6 @@ namespace Brawler.Input
         [Range(0f, 0.3f)]
         public float jumpBufferDuration = 0.1f;
 
-        [Tooltip("How long to remember a dash press.")]
-        [Range(0f, 0.3f)]
-        public float dashBufferDuration = 0.08f;
-
         [Tooltip("How long to remember an attack press.")]
         [Range(0f, 0.3f)]
         public float attackBufferDuration = 0.1f;

@@ -81,6 +81,19 @@ namespace Brawler.Combat
         }
 
         /// <summary>
+        /// Called by Hitbox when this hurtbox is grabbed instead of hit.
+        /// </summary>
+        public void OnGrabbed(FighterBase attacker) {
+            if (IsInvincible) return;
+            if (Owner == null) return;
+            if (Owner.IsRespawning) return;
+
+            // Relay the message up to the brain!
+            // (We will need to add this method to FighterBase next)
+            Owner.GetGrabbedBy(attacker);
+        }
+
+        /// <summary>
         /// Make this hurtbox invincible (cannot be hit).
         /// Used for respawn invincibility.
         /// </summary>

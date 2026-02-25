@@ -41,6 +41,9 @@ namespace Brawler.Fighter
         [Tooltip("Default grab.")]
         [SerializeField] private AttackData grabAction;
 
+        [Tooltip("Default dodge.")]
+        [SerializeField] private AttackData dodgeAction;
+
         [Header("Hitbox")]
         [Tooltip("The hitbox component used for attacks. If null, one will be created.")]
         [SerializeField] private Hitbox hitbox;
@@ -57,6 +60,9 @@ namespace Brawler.Fighter
         /// <summary>Current attack state.</summary>
         public AttackState CurrentState => currentState;
 
+        /// <summary>The opponent currently being held. Null if not holding anyone.</summary>
+        public FighterBase HeldOpponent { get; private set; }
+
         public event Action<AttackData> OnAttackStarted;
         public event Action<AttackData> OnAttackHitActive;
         public event Action OnAttackEnded;
@@ -64,6 +70,8 @@ namespace Brawler.Fighter
         private PlayerInputHandler input;
         private FighterBase fighter;
         private FighterMovement movement;
+
+        private Hurtbox hurtbox; // Add this near your other private variables
 
         private AttackState currentState = AttackState.Idle;
         private Coroutine attackCoroutine;
@@ -73,7 +81,8 @@ namespace Brawler.Fighter
             Idle,
             Startup,
             Active,
-            Recovery
+            Recovery,
+            Holding
         }
 
         private void Awake()
@@ -101,6 +110,7 @@ namespace Brawler.Fighter
         {
             input = inputHandler;
             fighter = owner;
+            hurtbox = fighter.GetComponentInChildren<Hurtbox>();
 
             if (hitbox == null)
             {
@@ -177,7 +187,18 @@ namespace Brawler.Fighter
                 return false;
             }
 
-            StartAttack(attack);
+            switch (context) {
+                case AttackContext.Dodge:
+                    StartDodge(attack);
+                    break;
+                case AttackContext.Grab:
+                    StartGrab(attack);
+                    break;
+                default:
+                    StartAttack(attack);
+                    break;
+            }
+
             return true;
         }
 
@@ -191,6 +212,9 @@ namespace Brawler.Fighter
                 AttackContext.Up => upAttack ?? neutralAttack,
                 AttackContext.Down => downAttack ?? neutralAttack,
                 AttackContext.AerialOnly => aerialAttack ?? neutralAttack,
+                //AttackContext.Grab => grabAction
+                //AttackContext.Dodge => dodgeAction. Where the hell are these actions actually happening. I dont want to call for damage 
+
                 AttackContext.Any => neutralAttack,
                 _ => neutralAttack
             };
@@ -212,6 +236,26 @@ namespace Brawler.Fighter
             }
 
             OnAttackStarted?.Invoke(attack);
+        }
+
+        private void StartDodge(AttackData dodgeData) {
+            if (attackCoroutine != null) {
+                StopCoroutine(attackCoroutine);
+            }
+
+            CurrentAttack = dodgeData;
+            attackCoroutine = StartCoroutine(DodgeCoroutine(dodgeData));
+
+            // Fire off an event so animations or sounds know to play
+            OnAttackStarted?.Invoke(dodgeData);
+        }
+
+        private void StartGrab(AttackData grabData) {
+            if (attackCoroutine != null) StopCoroutine(attackCoroutine);
+
+            CurrentAttack = grabData;
+            attackCoroutine = StartCoroutine(GrabCoroutine(grabData));
+            OnAttackStarted?.Invoke(grabData);
         }
 
         private IEnumerator AttackCoroutine(AttackData attack)
@@ -245,6 +289,73 @@ namespace Brawler.Fighter
             {
                 Debug.Log($"[AttackController] Attack ended: {attack.attackName}");
             }
+        }
+
+        private IEnumerator DodgeCoroutine(AttackData dodgeData) {
+            //Startup frames
+            currentState = AttackState.Startup;
+            yield return new WaitForSeconds(dodgeData.StartupTime);
+
+            //Invisibility frames
+            currentState = AttackState.Active;
+            if (hurtbox != null) hurtbox.SetInvincible(true);
+
+            yield return new WaitForSeconds(dodgeData.ActiveTime);
+
+            //Recover frames
+            if (hurtbox != null) hurtbox.SetInvincible(false);
+
+            currentState = AttackState.Recovery;
+            yield return new WaitForSeconds(dodgeData.RecoveryTime);
+
+            //Idle state 
+            currentState = AttackState.Idle;
+            CurrentAttack = null;
+            attackCoroutine = null;
+            OnAttackEnded?.Invoke();
+        }
+
+        private IEnumerator GrabCoroutine(AttackData grabData) {
+            //Startup
+            currentState = AttackState.Startup;
+            yield return new WaitForSeconds(grabData.StartupTime);
+
+            //Active (Turn on grab hitbox)
+            currentState = AttackState.Active;
+            hitbox.Activate(grabData);
+
+            yield return new WaitForSeconds(grabData.ActiveTime);
+
+            //Deactivate hitbox
+            hitbox.Deactivate();
+
+            //Recovery
+            currentState = AttackState.Recovery;
+            yield return new WaitForSeconds(grabData.RecoveryTime);
+
+            currentState = AttackState.Idle;
+            CurrentAttack = null;
+            attackCoroutine = null;
+            OnAttackEnded?.Invoke();
+        }
+
+        /// <summary>
+        /// Called by Hitbox when a grab attack successfully connects.
+        /// </summary>
+        public void OnGrabSuccess(FighterBase victim) {
+            //Stop the grab animation/hitbox timings early
+            if (attackCoroutine != null) {
+                StopCoroutine(attackCoroutine);
+                attackCoroutine = null;
+            }
+
+            hitbox.Deactivate();
+
+            //Lock into a holding state 
+            currentState = AttackState.Holding;
+            HeldOpponent = victim;
+
+            Debug.Log($"[AttackController] Now holding {victim.name}. Waiting for throw input...");
         }
 
         /// <summary>

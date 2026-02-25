@@ -78,6 +78,10 @@ namespace Brawler.Combat
         public float ActiveTime => activeFrames / 60f;
         public float RecoveryTime => recoveryFrames / 60f;
         public float TotalTime => (startupFrames + activeFrames + recoveryFrames) / 60f;
+
+        [Header("Attack Type Details")]
+        [Tooltip("If true, this attack will grab the opponent instead of knocking them back.")]
+        public bool isGrab = false;
     }
 
     /// <summary>
@@ -92,6 +96,8 @@ namespace Brawler.Combat
         Forward,        // Forward input
         Up,             // Up input
         Down,            // Down input
-        Grab            // Grab input 
+        Grab,            // Grab input 
+        Dodge           // Dodge input
+        
     }
 }
