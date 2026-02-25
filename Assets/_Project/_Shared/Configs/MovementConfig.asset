@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77dfd4c451cbc374aa5ad239bf9e40e0, type: 3}
   m_Name: MovementConfig
   m_EditorClassIdentifier: 
-  maxSpeed: 8
-  acceleration: 60
+  maxSpeed: 10
+  acceleration: 85
   deceleration: 60
   turnAroundMultiplier: 1.5
-  airControlMultiplier: 0.85
-  jumpForce: 14
-  jumpCutMultiplier: 0.5
+  airControlMultiplier: 0.924
+  jumpForce: 20
+  jumpCutMultiplier: 0.6
   coyoteTime: 0.12
-  gravityScale: 1
-  fallGravityMultiplier: 1.6
+  gravityScale: 4
+  fallGravityMultiplier: 1.1
   groundCheckDistance: 0.1
   groundLayer:
     serializedVersion: 2

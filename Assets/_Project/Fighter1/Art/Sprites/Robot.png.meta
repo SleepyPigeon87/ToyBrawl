@@ -115,12 +115,12 @@ TextureImporter:
       name: Robot_0
       rect:
         serializedVersion: 2
-        x: 309
+        x: 0
         y: 0
-        width: 602
-        height: 531
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 1260
+        height: 1260
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -137,12 +137,12 @@ TextureImporter:
       name: Robot_1
       rect:
         serializedVersion: 2
-        x: 1579
+        x: 1260
         y: 0
-        width: 612
-        height: 521
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 1260
+        height: 1260
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -159,12 +159,12 @@ TextureImporter:
       name: Robot_3
       rect:
         serializedVersion: 2
-        x: 2899
+        x: 3780
         y: 0
-        width: 512
-        height: 521
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 1260
+        height: 1260
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -178,23 +178,23 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Robot_4
+      name: Robot_2
       rect:
         serializedVersion: 2
-        x: 4089
+        x: 2520
         y: 0
-        width: 602
-        height: 531
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 1260
+        height: 1260
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: ca97b55005a29f200800000000000000
-      internalID: 214248980452440492
+      spriteID: 1757d5a580585c04e80e66711af6fc97
+      internalID: -3378959473338303302
       vertices: []
       indices: 
       edges: []
@@ -211,13 +211,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":1.0},"gridSpriteSize":{"x":1260.0,"y":1260.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Robot_0: 17426746270384133
       Robot_1: 5638259562752074330
       Robot_2: -3378959473338303302
       Robot_3: 5332947737335612695
-      Robot_4: 214248980452440492
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

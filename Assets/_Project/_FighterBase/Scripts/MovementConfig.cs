@@ -47,7 +47,7 @@ namespace Brawler.Fighter
 
         [Header("Gravity")]
         [Tooltip("Base gravity scale. 1 = Unity default.")]
-        [Range(0.5f, 3f)]
+        [Range(0.5f, 10f)]
         public float gravityScale = 1f;
 
         [Tooltip("Gravity multiplier when falling.")]
