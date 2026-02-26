@@ -163,6 +163,17 @@
                 },
                 {
                     "name": "",
+                    "id": "0fdbbed1-4bda-45e8-9af3-c46464c28c6b",
+                    "path": "<Keyboard>/j",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LightAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "b2826da5-d5f6-4028-8cc4-8ae8d27e95fb",
                     "path": "<Gamepad>/buttonEast",
                     "interactions": "",
