@@ -358,6 +358,12 @@ namespace Brawler.Fighter
             Debug.Log($"[AttackController] Now holding {victim.name}. Waiting for throw input...");
         }
 
+
+        public void OnThrow (FighterBase vitim) {
+
+
+        }
+
         /// <summary>
         /// Cancel current attack (for interrupts or getting hit).
         /// </summary>

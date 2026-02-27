@@ -303,10 +303,10 @@
                 {
                     "name": "up",
                     "id": "8ecd45d1-bc85-4b97-b560-3a29b307a05e",
-                    "path": "<Keyboard>/w",
+                    "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard1",
+                    "groups": "Keyboard2",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -314,10 +314,10 @@
                 {
                     "name": "down",
                     "id": "49261828-61c9-4cd6-94f5-12734221eeaf",
-                    "path": "<Keyboard>/s",
+                    "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard1",
+                    "groups": ";Keyboard2",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -325,10 +325,10 @@
                 {
                     "name": "left",
                     "id": "0682896d-77de-413f-b02b-a3d604a41eda",
-                    "path": "<Keyboard>/a",
+                    "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard1",
+                    "groups": ";Keyboard2",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -336,10 +336,10 @@
                 {
                     "name": "right",
                     "id": "51ee6ade-b7e7-4240-9702-a433a2570ef4",
-                    "path": "<Keyboard>/d",
+                    "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard1",
+                    "groups": ";Keyboard2",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -350,7 +350,7 @@
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Gamepad1",
+                    "groups": "Gamepad2",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -358,10 +358,10 @@
                 {
                     "name": "",
                     "id": "07ea1ff3-e290-4e80-8bee-73bee261b79b",
-                    "path": "<Keyboard>/space",
+                    "path": "<Keyboard>/shift",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard1",
+                    "groups": ";Keyboard2",
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -372,7 +372,7 @@
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Gamepad1",
+                    "groups": ";Gamepad2",
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -383,7 +383,18 @@
                     "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Gamepad1",
+                    "groups": ";Gamepad2",
+                    "action": "LightAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fb04ad41-109d-42ee-8c99-e5b55692500d",
+                    "path": "<Keyboard>/numpad0",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "LightAttack",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -394,7 +405,7 @@
                     "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Gamepad1",
+                    "groups": ";Gamepad2",
                     "action": "GrabToss",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -405,7 +416,7 @@
                     "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Gamepad1",
+                    "groups": ";Gamepad2",
                     "action": "DodgeRoll",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -427,7 +438,7 @@
                     "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Gamepad1",
+                    "groups": ";Gamepad2",
                     "action": "Ultimate",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -438,7 +449,7 @@
                     "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Gamepad2",
                     "action": "Ultimate",
                     "isComposite": false,
                     "isPartOfComposite": true
