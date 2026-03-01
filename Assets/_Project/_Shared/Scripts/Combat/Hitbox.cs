@@ -105,10 +105,10 @@ namespace Brawler.Combat
             if (hitFighters.Contains(targetId)) return;
             hitFighters.Add(targetId);
             if (attackData.isGrab) {
-                // 1. Tell the hurtbox it got grabbed (freezes the defender)
+                //Tell hurtbox it got grabbed
                 hurtbox.OnGrabbed(Owner);
 
-                // 2. Look for the AttackController on the Attacker and trigger the success method
+                //Trigger the success method
                 var attackerController = Owner.GetComponent<AttackController>();
                 if (attackerController != null) {
                     attackerController.OnGrabSuccess(hurtbox.Owner);

@@ -61,6 +61,9 @@ namespace Brawler.Fighter
         //True if fighter is being held
         public bool IsGrabbed { get; protected set; }
 
+        //Might need this. 
+        public bool IsThrowing { get; protected set; )
+
         // Component references
         protected Rigidbody2D Rb { get; private set; }
         protected FighterHealth Health { get; private set; }

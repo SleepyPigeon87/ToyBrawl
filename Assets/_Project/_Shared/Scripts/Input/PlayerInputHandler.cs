@@ -29,19 +29,23 @@ namespace Brawler.Input
 
         // Buffer timers
         private float jumpBufferTimer;
-        //private float dashBufferTimer;
+        private float dashBufferTimer;
         private float attackBufferTimer;
         private float ultimateBufferTimer;
-        private float specialBufferTimer; 
+        private float specialBufferTimer;
+        private float dodgeRollBufferTimer;
+        private float grabThrowBufferTimer
 
 
         // Processed input state (read by FighterMovement/AttackController)
         public Vector2 MoveInput { get; private set; }
         public bool JumpBuffered => jumpBufferTimer > 0f;
         public bool JumpHeld { get; private set; }
-        //public bool DashBuffered => dashBufferTimer > 0f;
+        public bool DashBuffered => dashBufferTimer > 0f;
         public bool AttackBuffered => attackBufferTimer > 0f;
         public bool SpecialBuffered => ultimateBufferTimer > 0f;
+        public bool GrabThrowBuffered => grabThrowBufferTimer > 0f;
+
         public bool UsingGamepad { get; private set; }
         public int PlayerIndex => playerIndex;
 
@@ -173,10 +177,10 @@ namespace Brawler.Input
                 jumpAction.canceled += OnJumpCanceled;
             }
 
-           /* if (dashAction != null)
+           if (dashAction != null)
             {
                 dashAction.performed += OnDashPerformed;
-            }*/
+            }
 
             if (lightAttackAction != null)
             {
@@ -210,9 +214,9 @@ namespace Brawler.Input
                 jumpAction.canceled -= OnJumpCanceled;
             }
 
-            //if (dashAction != null) {
-            //    dashAction.performed -= OnDashPerformed;
-            //}
+            if (dashAction != null) {
+                dashAction.performed -= OnDashPerformed;
+            }
 
             if (lightAttackAction != null)
             {
@@ -281,17 +285,17 @@ namespace Brawler.Input
             jumpBufferTimer = 0f;
         }
 
-        //// Dash
-        //private void OnDashPerformed(InputAction.CallbackContext context)
-        //{
-        //    float bufferDuration = config != null ? config.dashBufferDuration : 0.08f;
-        //    dashBufferTimer = bufferDuration;
-        //}
+        //Dash
+        private void OnDashPerformed(InputAction.CallbackContext context)
+        {
+            float bufferDuration = config != null ? config.dashBufferDuration : 0.08f;
+            dashBufferTimer = bufferDuration;
+        }
 
-        //public void ConsumeDashBuffer()
-        //{
-        //    dashBufferTimer = 0f;
-        //}
+        public void ConsumeDashBuffer()
+        {
+            dashBufferTimer = 0f;
+        }
 
         // Attack
         private void OnAttackPerformed(InputAction.CallbackContext context)
@@ -322,7 +326,7 @@ namespace Brawler.Input
             if (jumpBufferTimer > 0f)
                 jumpBufferTimer -= Time.deltaTime;
 
-            /*if (dashBufferTimer > 0f)
+            if (dashBufferTimer > 0f)
                 dashBufferTimer -= Time.deltaTime;*/
 
             if (attackBufferTimer > 0f)
@@ -363,13 +367,12 @@ namespace Brawler.Input
         }
 
         public void OnDodgeRollPerformed(InputAction.CallbackContext context) {
-            //DodgeRoll here
-
+            dodgeRollBufferTimer = 0f;
 
         }
 
         public void OnGrabTossPerformed(InputAction.CallbackContext context) {
-            //GrabToss here
+            grabThrowBufferTimer = 0f;
 
         }
 

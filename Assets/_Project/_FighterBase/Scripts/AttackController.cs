@@ -82,7 +82,8 @@ namespace Brawler.Fighter
             Startup,
             Active,
             Recovery,
-            Holding
+            Holding,
+            Throwing
         }
 
         private void Awake()
@@ -130,7 +131,7 @@ namespace Brawler.Fighter
             var gm = GameManager.Instance;
             if (gm != null && gm.CurrentState != GameState.Fighting && gm.CurrentState != GameState.Waiting)
                 return;
-
+  
             // Check for attack input
             if (input.AttackBuffered && !IsAttacking)
             {
@@ -354,13 +355,17 @@ namespace Brawler.Fighter
             //Lock into a holding state 
             currentState = AttackState.Holding;
             HeldOpponent = victim;
+            OnThrow(victim);
 
             Debug.Log($"[AttackController] Now holding {victim.name}. Waiting for throw input...");
         }
 
 
         public void OnThrow (FighterBase vitim) {
+            if (attackCoroutine != null) {
+               
 
+            }
 
         }
 
