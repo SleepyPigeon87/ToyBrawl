@@ -2,17 +2,16 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 using Brawler.Core;
+using Brawler.Fighter;
 
-namespace Brawler.UI
-{
+namespace Brawler.UI {
     /// <summary>
     /// Handles match-level UI: countdown, "GO!", round announcements, and winner display.
     ///
     /// SCAFFOLD - Students wire this to GameEvents.
     /// See Lesson 03: Wiring UI for step-by-step guide.
     /// </summary>
-    public class MatchUI : MonoBehaviour
-    {
+    public class MatchUI : MonoBehaviour {
         [Header("Announcement Text")]
         [Tooltip("Large center text for countdown, GO!, GAME!, etc.")]
         [SerializeField] private TextMeshProUGUI announcementText;
@@ -37,8 +36,10 @@ namespace Brawler.UI
         [Tooltip("Text showing winner name.")]
         [SerializeField] private TextMeshProUGUI winnerText;
 
-        private void Start()
-        {
+        private float remainingTime;
+        private bool timerRunning = false;
+
+        private void Start() {
             // Hide announcements initially
             if (announcementText != null)
                 announcementText.gameObject.SetActive(false);
@@ -47,25 +48,34 @@ namespace Brawler.UI
                 winnerPanel.SetActive(false);
 
             // TODO STEP 1: Subscribe to game events
-            // GameEvents.OnRoundStart += OnRoundStart;
-            // GameEvents.OnGameStateChanged += OnGameStateChanged;
-            // GameEvents.OnMatchEnd += OnMatchEnd;
+            GameEvents.OnRoundStart += OnRoundStart;
+            GameEvents.OnGameStateChanged += OnGameStateChanged;
+            GameEvents.OnMatchEnd += OnMatchEnd;
         }
 
-        private void OnDestroy()
-        {
+        private void OnDestroy() {
             // TODO: Unsubscribe from events
-            // GameEvents.OnRoundStart -= OnRoundStart;
-            // GameEvents.OnGameStateChanged -= OnGameStateChanged;
-            // GameEvents.OnMatchEnd -= OnMatchEnd;
+            GameEvents.OnRoundStart -= OnRoundStart;
+            GameEvents.OnGameStateChanged -= OnGameStateChanged;
+            GameEvents.OnMatchEnd -= OnMatchEnd;
+        }
+
+        private void Update() {
+            if (!timerRunning) return;
+            remainingTime -= Time.deltaTime;
+            if (timerText != null)
+                timerText.text = Mathf.CeilToInt(remainingTime).ToString();
+            if (remainingTime <= 0) {
+                timerRunning = false;
+                HandleTimeout();
+            }
         }
 
         /// <summary>
         /// Called when a new round starts.
         /// TODO STEP 1: Subscribe to this event.
         /// </summary>
-        private void OnRoundStart(int roundNumber)
-        {
+        private void OnRoundStart(int roundNumber) {
             // Update round text
             if (roundText != null)
             {
@@ -73,14 +83,12 @@ namespace Brawler.UI
             }
 
             // TODO STEP 2: Start countdown coroutine
-            // StartCoroutine(CountdownCoroutine());
+            StartCoroutine(CountdownCoroutine());
         }
 
-        /*
-         * TODO STEP 2: Implement countdown coroutine
-         *
-        private IEnumerator CountdownCoroutine()
-        {
+         //TODO STEP 2: Implement countdown coroutine
+         
+        private IEnumerator CountdownCoroutine() {
             if (announcementText == null) yield break;
 
             announcementText.gameObject.SetActive(true);
@@ -103,56 +111,62 @@ namespace Brawler.UI
 
             announcementText.gameObject.SetActive(false);
         }
-        */
+
+        private void HandleTimeout() {
+            var gm = GameManager.Instance;
+            if (gm == null) return;
+
+            var health0 = gm.GetFighter(0).GetComponent<FighterHealth>();
+            var health1 = gm.GetFighter(1).GetComponent<FighterHealth>();
+
+            int winner = health0.CurrentHealth >= health1.CurrentHealth ? 0 : 1;
+            gm.EndMatch(winner);
+        }
 
         /// <summary>
         /// Called when game state changes.
         /// TODO STEP 1: Subscribe to this event.
         /// </summary>
-        private void OnGameStateChanged(GameState newState)
-        {
-            // TODO STEP 3: Handle different states
-            // switch (newState)
-            // {
-            //     case GameState.RoundEnd:
-            //         // Show "KO!" or round winner
-            //         break;
-            //     case GameState.Paused:
-            //         // Show pause menu
-            //         break;
-            // }
+        private void OnGameStateChanged(GameState newState) {
+            switch (newState) {
+                case GameState.Fighting:
+                    remainingTime = 99f;
+                    timerRunning = true;
+                    break;
+                case GameState.RoundEnd:
+                case GameState.MatchEnd:
+                case GameState.Paused:
+                    timerRunning = false;
+                    break;
+            }
         }
 
         /// <summary>
         /// Called when match ends.
         /// TODO STEP 1: Subscribe to this event.
         /// </summary>
-        private void OnMatchEnd(int winnerIndex)
-        {
+        private void OnMatchEnd(int winnerIndex) {
             // TODO STEP 4: Show winner panel
-            // if (winnerPanel != null)
-            //     winnerPanel.SetActive(true);
+            if (winnerPanel != null)
+                winnerPanel.SetActive(true);
 
-            // if (winnerText != null)
-            //     winnerText.text = $"Player {winnerIndex + 1} Wins!";
+            if (winnerText != null)
+                winnerText.text = $"Player {winnerIndex + 1} Wins!";
 
-            // if (announcementText != null)
-            // {
-            //     announcementText.gameObject.SetActive(true);
-            //     announcementText.text = "GAME!";
-            // }
+            if (announcementText != null) {
+                announcementText.gameObject.SetActive(true);
+                announcementText.text = "GAME!";
+            }
         }
 
         /// <summary>
         /// Show a temporary announcement.
         /// </summary>
-        public void ShowAnnouncement(string text, float duration = 1.5f)
-        {
+        public void ShowAnnouncement(string text, float duration = 1.5f) {
             StartCoroutine(ShowAnnouncementCoroutine(text, duration));
         }
 
-        private IEnumerator ShowAnnouncementCoroutine(string text, float duration)
-        {
+        private IEnumerator ShowAnnouncementCoroutine(string text, float duration) {
             if (announcementText == null) yield break;
 
             announcementText.text = text;

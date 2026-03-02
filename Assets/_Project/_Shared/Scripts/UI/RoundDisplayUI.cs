@@ -34,7 +34,7 @@ namespace Brawler.UI
         private void Start()
         {
             // TODO STEP 1: Subscribe to round score changes
-            // GameEvents.OnRoundScoreChanged += OnRoundScoreChanged;
+            GameEvents.OnRoundScoreChanged += OnRoundScoreChanged;
 
             // Initialize display
             UpdateDisplay(0, 0);
@@ -44,7 +44,7 @@ namespace Brawler.UI
         private void OnDestroy()
         {
             // TODO: Unsubscribe
-            // GameEvents.OnRoundScoreChanged -= OnRoundScoreChanged;
+            GameEvents.OnRoundScoreChanged -= OnRoundScoreChanged;
         }
 
         /// <summary>

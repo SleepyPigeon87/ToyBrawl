@@ -33,8 +33,8 @@ namespace Brawler.Input
         private float attackBufferTimer;
         private float ultimateBufferTimer;
         private float specialBufferTimer;
-        private float dodgeRollBufferTimer;
-        private float grabThrowBufferTimer
+        //private float dodgeRollBufferTimer;
+        private float grabThrowBufferTimer;
 
 
         // Processed input state (read by FighterMovement/AttackController)
@@ -52,6 +52,7 @@ namespace Brawler.Input
         // Input action references
         private InputAction moveAction;
         private InputAction jumpAction;
+        private InputAction dashAction;
         private InputAction lightAttackAction;
         private InputAction ultimateAction;
         private InputAction grabTossAction;
@@ -162,8 +163,8 @@ namespace Brawler.Input
         private void EnableInputActions()
         {
             if (moveAction == null) return;
-
             moveAction.Enable();
+            //dashAction.Enable();
             jumpAction?.Enable();
             ultimateAction?.Enable();
             lightAttackAction?.Enable();
@@ -327,7 +328,7 @@ namespace Brawler.Input
                 jumpBufferTimer -= Time.deltaTime;
 
             if (dashBufferTimer > 0f)
-                dashBufferTimer -= Time.deltaTime;*/
+                dashBufferTimer -= Time.deltaTime;
 
             if (attackBufferTimer > 0f)
                 attackBufferTimer -= Time.deltaTime;
@@ -367,7 +368,7 @@ namespace Brawler.Input
         }
 
         public void OnDodgeRollPerformed(InputAction.CallbackContext context) {
-            dodgeRollBufferTimer = 0f;
+            //dodgeRollBufferTimer = 0f;
 
         }
 

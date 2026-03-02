@@ -40,6 +40,7 @@ namespace Brawler.Core
         public GameState CurrentState { get; private set; } = GameState.Waiting;
         public int CurrentRound { get; private set; } = 0;
         public int[] RoundWins { get; private set; } = new int[2]; // [P1 wins, P2 wins]
+        public FighterBase GetFighter(int index) => fighters[index];
 
         private void Awake()
         {
