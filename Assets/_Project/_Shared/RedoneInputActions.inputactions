@@ -52,9 +52,27 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "DodgeRoll",
+                    "name": "DashDodge",
                     "type": "Button",
                     "id": "9964f956-e464-4bb7-8f4b-8fd8cc45eee2",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "HeavyAttack",
+                    "type": "Button",
+                    "id": "0440788b-5a43-4ea2-80f9-c9b99f988bd3",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Range",
+                    "type": "Button",
+                    "id": "50b0f1d1-8dba-4b6c-90c1-943c5ef02fd7",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -142,7 +160,7 @@
                 {
                     "name": "",
                     "id": "b1000008-0001-0001-0001-000000000001",
-                    "path": "<Gamepad>/buttonSouth",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad1",
@@ -153,7 +171,7 @@
                 {
                     "name": "",
                     "id": "eea079b8-dbda-4afa-b7cd-63c5f6b11bde",
-                    "path": "<Gamepad>/buttonWest",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad1",
@@ -169,28 +187,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "LightAttack",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "b2826da5-d5f6-4028-8cc4-8ae8d27e95fb",
-                    "path": "<Gamepad>/buttonEast",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Gamepad1",
-                    "action": "GrabToss",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "291d89f6-243d-49b0-bd42-c4a1f99a9c90",
-                    "path": "<Gamepad>/buttonNorth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Gamepad1",
-                    "action": "DodgeRoll",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -226,6 +222,50 @@
                     "action": "Ultimate",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "c5bc91f8-ab9c-4e09-9e0d-a006e2f118d4",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad1",
+                    "action": "DashDodge",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b049c479-295b-4b88-b85c-e3eaced49185",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad1",
+                    "action": "GrabToss",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "04895131-310c-4922-9255-83e429a407d7",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad1",
+                    "action": "HeavyAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e1f850ec-837f-497b-8ed2-11343405079d",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad1",
+                    "action": "Range",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -282,6 +322,24 @@
                     "name": "DodgeRoll",
                     "type": "Button",
                     "id": "12d1fa74-eb16-478d-a893-1ad89d861ffd",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "HeavyAttack",
+                    "type": "Button",
+                    "id": "02054518-7c63-4b10-ae11-907eecb5e79d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Range",
+                    "type": "Button",
+                    "id": "4ffd7b42-1af0-4894-9411-dd3b53ae3102",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -369,7 +427,7 @@
                 {
                     "name": "",
                     "id": "a378d8c5-08aa-4c1a-b022-bdf7676f9c02",
-                    "path": "<Gamepad>/buttonSouth",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad2",
@@ -380,7 +438,7 @@
                 {
                     "name": "",
                     "id": "0643bf69-ff2f-43c8-b3e9-b15d905ad459",
-                    "path": "<Gamepad>/buttonWest",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad2",
@@ -402,7 +460,7 @@
                 {
                     "name": "",
                     "id": "cc3442c1-d45e-49fe-bcd0-5cc0cc465645",
-                    "path": "<Gamepad>/buttonEast",
+                    "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad2",
@@ -413,7 +471,7 @@
                 {
                     "name": "",
                     "id": "228986d0-1506-4749-96af-cdba34122edc",
-                    "path": "<Gamepad>/buttonNorth",
+                    "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad2",
@@ -453,6 +511,28 @@
                     "action": "Ultimate",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "4d9ec55d-810b-49db-b7bc-17f86b431b40",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad2",
+                    "action": "HeavyAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5a76370c-ff97-432f-80d7-a7d27fe6120c",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad2",
+                    "action": "Range",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
