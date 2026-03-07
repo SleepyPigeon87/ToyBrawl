@@ -137,11 +137,11 @@
                 },
                 {
                     "name": "",
-                    "id": "b1000006-0001-0001-0001-000000000001",
+                    "id": "a7cd4046-f98f-4b5a-b502-260d3e3de856",
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Gamepad1",
+                    "groups": ";Gamepad1",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -416,7 +416,7 @@
                 {
                     "name": "",
                     "id": "07ea1ff3-e290-4e80-8bee-73bee261b79b",
-                    "path": "<Keyboard>/shift",
+                    "path": "<Keyboard>/z",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard2",
@@ -449,7 +449,7 @@
                 {
                     "name": "",
                     "id": "fb04ad41-109d-42ee-8c99-e5b55692500d",
-                    "path": "<Keyboard>/numpad0",
+                    "path": "<Keyboard>/x",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -470,11 +470,33 @@
                 },
                 {
                     "name": "",
+                    "id": "21ca4d49-0375-4158-a691-407162dd0bdd",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GrabToss",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "228986d0-1506-4749-96af-cdba34122edc",
                     "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad2",
+                    "action": "DodgeRoll",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9a337c4c-29c4-4c18-aaad-eb1756ca28f4",
+                    "path": "<Keyboard>/v",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "DodgeRoll",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -525,11 +547,33 @@
                 },
                 {
                     "name": "",
+                    "id": "7d11f781-9110-42f2-8fba-9c4fb69f8d48",
+                    "path": "<Keyboard>/b",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HeavyAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "5a76370c-ff97-432f-80d7-a7d27fe6120c",
-                    "path": "<Gamepad>/buttonNorth",
+                    "path": "<Keyboard>/n",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad2",
+                    "action": "Range",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a27f05e8-bacb-4183-ba97-b56d777b342d",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "Range",
                     "isComposite": false,
                     "isPartOfComposite": false

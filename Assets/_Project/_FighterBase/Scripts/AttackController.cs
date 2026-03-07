@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using UnityEngine;
 using Brawler.Input;
@@ -20,8 +20,7 @@ namespace Brawler.Fighter
     ///
     /// Students can use this as-is or implement their own attack system.
     /// </summary>
-    public class AttackController : MonoBehaviour
-    {
+    public class AttackController : MonoBehaviour{
         [Header("Attack Assignments")]
         [Tooltip("Attack used with no directional input while grounded.")]
         [SerializeField] private AttackData neutralAttack;
@@ -34,6 +33,9 @@ namespace Brawler.Fighter
 
         [Tooltip("Attack used with down input while grounded.")]
         [SerializeField] private AttackData downAttack;
+
+        [Tooltip("Default ranged attack.")]
+        [SerializeField] private AttackData rangedAction;
 
         [Tooltip("Default attack used in the air.")]
         [SerializeField] private AttackData aerialAttack;
@@ -51,6 +53,9 @@ namespace Brawler.Fighter
         [Header("Debug")]
         [SerializeField] private bool logAttacks = false;
 
+        [Tooltip("Attack used when throwing a grabbed opponent.")]
+        [SerializeField] private AttackData tossAction;
+
         /// <summary>True if currently in any attack state.</summary>
         public bool IsAttacking => currentState != AttackState.Idle;
 
@@ -66,6 +71,8 @@ namespace Brawler.Fighter
         public event Action<AttackData> OnAttackStarted;
         public event Action<AttackData> OnAttackHitActive;
         public event Action OnAttackEnded;
+        public event Action OnHeavyAttackPressed;
+        public event Action OnSpecialPressed;
 
         private PlayerInputHandler input;
         private FighterBase fighter;
@@ -75,6 +82,7 @@ namespace Brawler.Fighter
 
         private AttackState currentState = AttackState.Idle;
         private Coroutine attackCoroutine;
+        public float speedMultiplier = 1f;
 
         public enum AttackState
         {
@@ -122,21 +130,76 @@ namespace Brawler.Fighter
             hitbox.Initialize(owner);
         }
 
-        private void Update()
-        {
-            if (input == null || fighter == null) return;
-            if (!fighter.CanAct) return;
-
-            // Don't process attacks during countdown or between rounds
-            var gm = GameManager.Instance;
-            if (gm != null && gm.CurrentState != GameState.Fighting && gm.CurrentState != GameState.Waiting)
+        private void Update() {
+            if (input == null || fighter == null) {
                 return;
-  
-            // Check for attack input
-            if (input.AttackBuffered && !IsAttacking)
-            {
-                input.ConsumeAttackBuffer();
-                TryAttack(DetermineAttackContext());
+
+            }
+            if (!fighter.CanAct) {
+                return;
+
+            }
+
+            var gm = GameManager.Instance;
+            if (gm != null && gm.CurrentState != GameState.Fighting && gm.CurrentState != GameState.Waiting) {
+                return;
+            }
+
+            if (currentState == AttackState.Holding && HeldOpponent != null) {
+                HandleHoldingInput();
+                return;
+            }
+
+            HandleCombatInput();
+        }
+
+        private void HandleHoldingInput() {
+            if (input.LightAttackBuffered) {
+                input.ConsumeLightAttackBuffer();
+                var hurtbox = HeldOpponent.GetComponentInChildren<Hurtbox>();
+                if (hurtbox != null) hurtbox.OnHit(hitbox, neutralAttack, fighter.FacingDirection);
+                ReleaseHeldOpponent();
+
+            } else if (input.HeavyAttackBuffered) {
+                input.ConsumeHeavyAttackBuffer();
+                var hurtbox = HeldOpponent.GetComponentInChildren<Hurtbox>();
+                if (hurtbox != null) hurtbox.OnHit(hitbox, neutralAttack, fighter.FacingDirection);
+                ReleaseHeldOpponent();
+
+            } else if (input.RangedAttackBuffered) {
+                input.ConsumeRangedAttackBuffer();
+                TryAttack(AttackContext.Ranged);
+
+            } else if (input.GrabBuffered) {
+                input.ConsumeGrabBuffer();
+                TossOpponent();
+
+            }
+        }
+
+        private void HandleCombatInput() {
+            if (IsAttacking) {
+                return;
+            }
+
+            if (input.LightAttackBuffered) { 
+                input.ConsumeLightAttackBuffer(); 
+                TryAttack(DetermineAttackContext()); 
+            } else if (input.HeavyAttackBuffered) { 
+                input.ConsumeHeavyAttackBuffer(); 
+                OnHeavyAttackPressed?.Invoke(); 
+            } else if (input.RangedAttackBuffered) { 
+                input.ConsumeRangedAttackBuffer(); 
+                TryAttack(AttackContext.Ranged); 
+            } else if (input.DodgeBuffered) { 
+                input.ConsumeDodgeBuffer(); 
+                TryAttack(AttackContext.Dodge); 
+            } else if (input.GrabBuffered) { 
+                input.ConsumeGrabBuffer(); 
+                TryAttack(AttackContext.Grab); 
+            } else if (input.UltimateBuffered) { 
+                input.ConsumeUltimateBuffer(); 
+                OnSpecialPressed?.Invoke(); 
             }
         }
 
@@ -208,14 +271,14 @@ namespace Brawler.Fighter
             return context switch
             {
                 AttackContext.Neutral => neutralAttack,
+                AttackContext.Ranged => rangedAction,
                 AttackContext.GroundedOnly => neutralAttack,
                 AttackContext.Forward => forwardAttack ?? neutralAttack,
                 AttackContext.Up => upAttack ?? neutralAttack,
                 AttackContext.Down => downAttack ?? neutralAttack,
                 AttackContext.AerialOnly => aerialAttack ?? neutralAttack,
-                //AttackContext.Grab => grabAction
-                //AttackContext.Dodge => dodgeAction. Where the hell are these actions actually happening. I dont want to call for damage 
-
+                AttackContext.Grab => grabAction,
+                AttackContext.Dodge => dodgeAction,
                 AttackContext.Any => neutralAttack,
                 _ => neutralAttack
             };
@@ -259,25 +322,36 @@ namespace Brawler.Fighter
             OnAttackStarted?.Invoke(grabData);
         }
 
-        private IEnumerator AttackCoroutine(AttackData attack)
-        {
+        private IEnumerator AttackCoroutine(AttackData attack) {
             // Startup phase
             currentState = AttackState.Startup;
-            yield return new WaitForSeconds(attack.StartupTime);
+            yield return new WaitForSeconds(attack.StartupTime * speedMultiplier);
 
             // Active phase - hitbox is active
             currentState = AttackState.Active;
-            hitbox.Activate(attack);
-            OnAttackHitActive?.Invoke(attack);
+            if (attack.projectilePrefab != null) {
+                Vector2 spawnPos = (Vector2)fighter.transform.position +
+                    new Vector2(attack.hitboxOffset.x * fighter.FacingDirection,
+                                attack.hitboxOffset.y);
+                var obj = Instantiate(attack.projectilePrefab, spawnPos, Quaternion.identity);
+                var proj = obj.GetComponent<Projectile>();
+                if (proj != null) proj.Initialize(attack, fighter);
+            } else {
+                hitbox.Activate(attack);
 
-            yield return new WaitForSeconds(attack.ActiveTime);
+            }
+
+            OnAttackHitActive?.Invoke(attack);
+            yield return new WaitForSeconds(attack.ActiveTime * speedMultiplier);
 
             // Deactivate hitbox
-            hitbox.Deactivate();
+            if (attack.projectilePrefab == null) {
+                hitbox.Deactivate();
+            }
 
             // Recovery phase
             currentState = AttackState.Recovery;
-            yield return new WaitForSeconds(attack.RecoveryTime);
+            yield return new WaitForSeconds(attack.RecoveryTime * speedMultiplier);
 
             // Return to idle
             currentState = AttackState.Idle;
@@ -355,18 +429,26 @@ namespace Brawler.Fighter
             //Lock into a holding state 
             currentState = AttackState.Holding;
             HeldOpponent = victim;
-            OnThrow(victim);
 
             Debug.Log($"[AttackController] Now holding {victim.name}. Waiting for throw input...");
         }
 
+        public void ForceGrab(AttackData grabData) {
+            StartGrab(grabData);
+        }
 
-        public void OnThrow (FighterBase vitim) {
-            if (attackCoroutine != null) {
-               
+        private void ReleaseHeldOpponent() {
+            HeldOpponent.ReleaseGrab();
+            HeldOpponent = null;
+            currentState = AttackState.Idle;
+            OnAttackEnded?.Invoke();
+        }
 
-            }
-
+        private void TossOpponent() {
+            if (HeldOpponent == null) return;
+            var hurtbox = HeldOpponent.GetComponentInChildren<Hurtbox>();
+            if (hurtbox != null) hurtbox.OnHit(hitbox, tossAction, fighter.FacingDirection);
+            ReleaseHeldOpponent();
         }
 
         /// <summary>
@@ -374,8 +456,7 @@ namespace Brawler.Fighter
         /// </summary>
         public void CancelAttack()
         {
-            if (attackCoroutine != null)
-            {
+            if (attackCoroutine != null) {
                 StopCoroutine(attackCoroutine);
                 attackCoroutine = null;
             }

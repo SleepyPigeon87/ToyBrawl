@@ -29,6 +29,12 @@ namespace Brawler.Combat
                  "Will be flipped based on attacker facing direction.")]
         public Vector2 knockbackAngle = new Vector2(1f, 0.5f);
 
+        [Tooltip("Prefab for the released projectile by the fighter")]
+        public GameObject projectilePrefab;
+
+        [Tooltip("The speed in which the projectile flies through.")]
+        public float projectileSpeed = 10f;
+
         [Header("Timing (in frames at 60fps)")]
         [Tooltip("Frames before the hitbox becomes active. Higher = slower startup.")]
         [Range(1, 60)]
@@ -96,6 +102,7 @@ namespace Brawler.Combat
         Forward,        // Forward input
         Up,             // Up input
         Down,            // Down input
+        Ranged,         //Ranged input
         Grab,            // Grab input 
         Dodge           // Dodge input
         

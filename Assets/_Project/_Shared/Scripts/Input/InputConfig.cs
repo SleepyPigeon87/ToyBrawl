@@ -18,13 +18,30 @@ namespace Brawler.Input
         [Range(0f, 0.3f)]
         public float jumpBufferDuration = 0.1f;
 
-        [Tooltip("How long to remember a dash press.")]
+        [Tooltip("How long to remember a dodge press.")]
         [Range(0f, 0.3f)]
-        public float dashBufferDuration = 0.08f;
+        public float dodgeBufferDuration = 0.08f;
 
-        [Tooltip("How long to remember an attack press.")]
+        [Tooltip("How long to remember a grab.")]
         [Range(0f, 0.3f)]
-        public float attackBufferDuration = 0.1f;
+        public float grabBufferDuration = 0.08f;
+
+        [Tooltip("How long to remember a light attack press.")]
+        [Range(0f, 0.3f)]
+        public float lightAttackBufferDuration = 0.1f;
+
+        [Tooltip("How long to remember a heavy attack press.")]
+        [Range(0f, 0.3f)]
+        public float heavyAttackBufferDuration = 0.1f;
+
+        [Tooltip("How long to remember a ranged attack press.")]
+        [Range(0f, 0.3f)]
+        public float rangedAttackBufferDuration = 0.1f;
+
+
+        [Tooltip("How long to remember an ultimate attack press was pressed.")]
+        [Range(0f, 0.3f)]
+        public float ultimateBufferDuration = 0.1f;
 
         [Header("Keyboard Settings")]
         [Tooltip("What analog value keyboard input maps to. 1.0 = full speed.")]

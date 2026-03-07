@@ -10,20 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b4de7f53d4a126d40bae94e48bd75560, type: 3}
-  m_Name: DoubleSlash
+  m_Name: CK_Peck
   m_EditorClassIdentifier: 
-  attackName: Double Slash
-  damage: 10
+  attackName: 'Peck '
+  damage: 7
   baseKnockback: 5
   knockbackAngle: {x: 1, y: 0.5}
+  projectilePrefab: {fileID: 0}
+  projectileSpeed: 10
   startupFrames: 3
   activeFrames: 5
-  recoveryFrames: 10
+  recoveryFrames: 8
   hitstunDuration: 0.2
   hitstopDuration: 0.05
-  hitboxOffset: {x: 0.5, y: 0}
+  hitboxOffset: {x: 1, y: 0}
   hitboxSize: {x: 1, y: 1}
-  context: 0
+  context: 3
   attackSound: {fileID: 0}
   hitSound: {fileID: 0}
   animationTrigger: Attack
