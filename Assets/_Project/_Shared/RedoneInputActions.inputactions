@@ -218,7 +218,40 @@
                     "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
+                    "groups": ";Gamepad1",
+                    "action": "Ultimate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "One Modifier",
+                    "id": "1d25eb49-8ac1-48d6-8536-03366856f093",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
                     "groups": "",
+                    "action": "Ultimate",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "2e5c5579-1851-4ef9-a375-710926c4d30d",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard1",
+                    "action": "Ultimate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "415a8d7c-9320-445d-aa07-640bb89f4312",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard1",
                     "action": "Ultimate",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -579,6 +612,39 @@
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "One Modifier",
+                    "id": "65dd710c-e41e-414a-8ec5-da40407c7010",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Ultimate",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "b9e465dd-a530-4eac-9ab3-efc183497f8d",
+                    "path": "<Keyboard>/comma",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard2",
+                    "action": "Ultimate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "2c6480fc-66fa-4de5-837e-37b520713c5f",
+                    "path": "<Keyboard>/period",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard2",
+                    "action": "Ultimate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "",
                     "id": "4d9ec55d-810b-49db-b7bc-17f86b431b40",
                     "path": "<Gamepad>/buttonWest",
@@ -607,6 +673,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard2",
+                    "action": "Range",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b9ed6846-e7e5-473c-a72c-891b944d2cfd",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "Range",
                     "isComposite": false,
                     "isPartOfComposite": false

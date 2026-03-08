@@ -158,6 +158,7 @@ namespace Brawler.Fighter
         }
 
         private void HandleHoldingInput() {
+            Debug.Log($"[AttackController] HandleHoldingInput running, HeldOpponent={HeldOpponent?.name}");
             if (input.LightAttackBuffered) {
                 input.ConsumeLightAttackBuffer();
                 var hurtbox = HeldOpponent.GetComponentInChildren<Hurtbox>();
