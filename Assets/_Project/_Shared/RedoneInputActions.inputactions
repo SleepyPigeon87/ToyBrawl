@@ -185,7 +185,7 @@
                     "path": "<Keyboard>/1",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Keyboard1",
                     "action": "LightAttack",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -240,7 +240,7 @@
                     "path": "<Keyboard>/3",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Keyboard1",
                     "action": "Dodge",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -262,7 +262,7 @@
                     "path": "<Keyboard>/4",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Keyboard1",
                     "action": "Grab",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -271,6 +271,17 @@
                     "name": "",
                     "id": "04895131-310c-4922-9255-83e429a407d7",
                     "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard1",
+                    "action": "HeavyAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c771269c-bafd-43d0-92af-aebdc3fff70a",
+                    "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad1",
@@ -295,7 +306,7 @@
                     "path": "<Keyboard>/5",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Keyboard1",
                     "action": "Range",
                     "isComposite": false,
                     "isPartOfComposite": false

@@ -43,15 +43,14 @@ namespace Brawler.Fighter {
             }
         
         }
-
         private void OnLightAttackPressed() {
             attacks.TryAttack(AttackContext.Neutral);
-        
+
         }
 
         private void OnHeavyAttackPressed() {
-            attacks.TryAttack(AttackContext.Neutral);
-        
+            attacks.TryAttack(AttackContext.Forward);
+
         }
 
         private void OnSpecialPressed() {
