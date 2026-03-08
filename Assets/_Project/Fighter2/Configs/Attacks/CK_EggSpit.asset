@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4de7f53d4a126d40bae94e48bd75560, type: 3}
   m_Name: CK_EggSpit
   m_EditorClassIdentifier: 
-  attackName: New Attack
+  attackName: CK_EggSpit
   damage: 10
   baseKnockback: 5
   knockbackAngle: {x: 1, y: 0.5}
@@ -23,9 +23,9 @@ MonoBehaviour:
   recoveryFrames: 10
   hitstunDuration: 0.2
   hitstopDuration: 0.05
-  hitboxOffset: {x: 0.5, y: 0}
+  hitboxOffset: {x: 0, y: 0.5}
   hitboxSize: {x: 1, y: 1}
-  context: 0
+  context: 7
   attackSound: {fileID: 0}
   hitSound: {fileID: 0}
   animationTrigger: Attack

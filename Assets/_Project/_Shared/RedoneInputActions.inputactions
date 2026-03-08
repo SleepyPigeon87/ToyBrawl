@@ -34,33 +34,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Ultimate",
-                    "type": "Button",
-                    "id": "a1000004-0001-0001-0001-000000000001",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "GrabToss",
-                    "type": "Button",
-                    "id": "542b2837-9ba1-4e30-abe6-39f5b737aa25",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "DashDodge",
-                    "type": "Button",
-                    "id": "9964f956-e464-4bb7-8f4b-8fd8cc45eee2",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "HeavyAttack",
                     "type": "Button",
                     "id": "0440788b-5a43-4ea2-80f9-c9b99f988bd3",
@@ -70,9 +43,36 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Dodge",
+                    "type": "Button",
+                    "id": "9964f956-e464-4bb7-8f4b-8fd8cc45eee2",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Grab",
+                    "type": "Button",
+                    "id": "542b2837-9ba1-4e30-abe6-39f5b737aa25",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Range",
                     "type": "Button",
                     "id": "50b0f1d1-8dba-4b6c-90c1-943c5ef02fd7",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Ultimate",
+                    "type": "Button",
+                    "id": "a1000004-0001-0001-0001-000000000001",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -149,7 +149,7 @@
                 {
                     "name": "",
                     "id": "b1000007-0001-0001-0001-000000000001",
-                    "path": "<Keyboard>/space",
+                    "path": "<Keyboard>/shift",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard1",
@@ -182,7 +182,7 @@
                 {
                     "name": "",
                     "id": "0fdbbed1-4bda-45e8-9af3-c46464c28c6b",
-                    "path": "<Keyboard>/j",
+                    "path": "<Keyboard>/1",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -230,7 +230,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad1",
-                    "action": "DashDodge",
+                    "action": "Dodge",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fed03b7d-ef4c-4332-b57c-ac4c42087818",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dodge",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -241,14 +252,25 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad1",
-                    "action": "GrabToss",
+                    "action": "Grab",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2b8ccfff-371e-4ea3-a22d-3bba64020121",
+                    "path": "<Keyboard>/4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Grab",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "04895131-310c-4922-9255-83e429a407d7",
-                    "path": "<Gamepad>/buttonWest",
+                    "path": "<Keyboard>/2",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad1",
@@ -263,6 +285,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad1",
+                    "action": "Range",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4db05ae4-104e-4817-8c8a-76a73d8c2486",
+                    "path": "<Keyboard>/5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "Range",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -301,33 +334,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Ultimate",
-                    "type": "Button",
-                    "id": "56c4cdfd-670b-4f1a-852e-e574904183d2",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "GrabToss",
-                    "type": "Button",
-                    "id": "d64b1501-99dc-4e94-ab92-ba2c1535f89c",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "DodgeRoll",
-                    "type": "Button",
-                    "id": "12d1fa74-eb16-478d-a893-1ad89d861ffd",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "HeavyAttack",
                     "type": "Button",
                     "id": "02054518-7c63-4b10-ae11-907eecb5e79d",
@@ -337,9 +343,36 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Dodge",
+                    "type": "Button",
+                    "id": "12d1fa74-eb16-478d-a893-1ad89d861ffd",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Grab",
+                    "type": "Button",
+                    "id": "d64b1501-99dc-4e94-ab92-ba2c1535f89c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Range",
                     "type": "Button",
                     "id": "4ffd7b42-1af0-4894-9411-dd3b53ae3102",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Ultimate",
+                    "type": "Button",
+                    "id": "56c4cdfd-670b-4f1a-852e-e574904183d2",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -452,7 +485,7 @@
                     "path": "<Keyboard>/x",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Keyboard2",
                     "action": "LightAttack",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -464,18 +497,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad2",
-                    "action": "GrabToss",
+                    "action": "Grab",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "21ca4d49-0375-4158-a691-407162dd0bdd",
-                    "path": "<Keyboard>/c",
+                    "path": "<Keyboard>/b",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "GrabToss",
+                    "groups": ";Keyboard2",
+                    "action": "Grab",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -486,7 +519,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad2",
-                    "action": "DodgeRoll",
+                    "action": "Dodge",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -496,8 +529,8 @@
                     "path": "<Keyboard>/v",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "DodgeRoll",
+                    "groups": ";Keyboard2",
+                    "action": "Dodge",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -548,10 +581,10 @@
                 {
                     "name": "",
                     "id": "7d11f781-9110-42f2-8fba-9c4fb69f8d48",
-                    "path": "<Keyboard>/b",
+                    "path": "<Keyboard>/c",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Keyboard2",
                     "action": "HeavyAttack",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -562,18 +595,7 @@
                     "path": "<Keyboard>/n",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Gamepad2",
-                    "action": "Range",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a27f05e8-bacb-4183-ba97-b56d777b342d",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
+                    "groups": ";Keyboard2",
                     "action": "Range",
                     "isComposite": false,
                     "isPartOfComposite": false

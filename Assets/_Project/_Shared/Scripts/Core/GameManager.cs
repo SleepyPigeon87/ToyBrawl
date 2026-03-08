@@ -93,7 +93,6 @@ namespace Brawler.Core
                 if (fighters[i] != null)
                 {
                     var inputHandler = fighters[i].GetComponent<PlayerInputHandler>();
-
                     Debug.Log($"[GameManager] Checking Fighter {i}. Found InputHandler? {inputHandler != null}");
                     if (inputHandler != null)
                     {

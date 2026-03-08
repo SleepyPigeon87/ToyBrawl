@@ -1,45 +1,85 @@
 using UnityEngine;
 using System.Collections;
 using Brawler.Combat;
-using Brawler.Fighter;
+namespace Brawler.Fighter {
+    public class Robot : FighterBase {
+        public override string FighterName => "Toy Robot";
+        private MeterController meter;
+        private AttackController attacks;
+        [SerializeField] private AttackData longDistanceGrabData;
+        [SerializeField] private AttackData lightAttackData;
+        [SerializeField] private float lungeForce = 5f;
 
-public class Robot : FighterBase {
-
-    public override string FighterName => "Toy Robot";
-
-    private MeterController meter;
-    private AttackController attacks;
-    [SerializeField] private AttackData longDistanceGrabData;
-
-    protected override void OnFighterInitialized() {
-        meter = GetComponent<MeterController>();
-        attacks = GetComponent<AttackController>();
-        attacks.OnHeavyAttackPressed += OnHeavyAttackPressed;
-        attacks.OnSpecialPressed += OnSpecialPressed;
-    }
-
-    protected override void OnTakeDamage(float damage) {
-        meter.AddMeter(damage);
-    }
-
-    private void OnHeavyAttackPressed() {
-        attacks.TryAttack(AttackContext.Neutral);
-    }
-
-    private void OnSpecialPressed() {
-        if (meter.HasEnoughMeter(meter.maxMeter)) {
-            meter.ConsumeMeter(meter.maxMeter);
-            TriggerLongDistanceGrab();
+        protected override void OnFighterInitialized() {
+            meter = GetComponent<MeterController>();
+            attacks = GetComponent<AttackController>();
+            attacks.OnAttackStarted += OnAttackStarted;
+            attacks.OnLightAttackPressed += OnLightAttackPressed;
+            attacks.OnHeavyAttackPressed += OnHeavyAttackPressed;
+            attacks.OnSpecialPressed += OnSpecialPressed;
+        
         }
+
+        protected override void OnRespawn(Vector2 position) {
+            StartCoroutine(RespawnCoroutine());
+        
+        }
+
+        private IEnumerator RespawnCoroutine() {
+            yield return new WaitForSeconds(2f);
+            EndRespawnInvincibility();
+        
+        }
+
+        protected override void OnTakeDamage(float damage) {
+            if (meter == null) return;
+            meter.AddMeter(damage);
+        }
+
+        private void OnAttackStarted(AttackData attack) {
+            if (attack == lightAttackData) {
+                Rb.AddForce(new Vector2(FacingDirection * lungeForce, 0f), ForceMode2D.Impulse);
+        
+            }
+        
+        }
+
+        private void OnLightAttackPressed() {
+            attacks.TryAttack(AttackContext.Neutral);
+        
+        }
+
+        private void OnHeavyAttackPressed() {
+            attacks.TryAttack(AttackContext.Neutral);
+        
+        }
+
+        private void OnSpecialPressed() {
+            if (meter.HasEnoughMeter(meter.maxMeter)) {
+                meter.ConsumeMeter(meter.maxMeter);
+                TriggerLongDistanceGrab();
+        
+            }
+        
+        }
+
+        private void TriggerLongDistanceGrab() {
+            attacks.ForceGrab(longDistanceGrabData);
+        
+        }
+
+        protected override void OnDestroy() {
+            base.OnDestroy();
+            if (attacks != null) {
+                attacks.OnLightAttackPressed -= OnLightAttackPressed;
+                attacks.OnHeavyAttackPressed -= OnHeavyAttackPressed;
+                attacks.OnSpecialPressed -= OnSpecialPressed;
+                attacks.OnAttackStarted -= OnAttackStarted;
+
+            }
+
+        }
+
     }
 
-    private void TriggerLongDistanceGrab() {
-        attacks.ForceGrab(longDistanceGrabData);
-    }
-
-    protected override void OnDestroy() {
-        base.OnDestroy();
-        attacks.OnHeavyAttackPressed -= OnHeavyAttackPressed;
-        attacks.OnSpecialPressed -= OnSpecialPressed;
-    }
 }

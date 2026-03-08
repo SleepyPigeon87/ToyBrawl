@@ -10,12 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b4de7f53d4a126d40bae94e48bd75560, type: 3}
-  m_Name: Robo-Punch
+  m_Name: TR_Robobump
   m_EditorClassIdentifier: 
-  attackName: New Attack
+  attackName: TR_Robobump
   damage: 10
   baseKnockback: 5
   knockbackAngle: {x: 1, y: 0.5}
+  projectilePrefab: {fileID: 0}
+  projectileSpeed: 10
   startupFrames: 3
   activeFrames: 5
   recoveryFrames: 10
@@ -23,7 +25,7 @@ MonoBehaviour:
   hitstopDuration: 0.05
   hitboxOffset: {x: 0.5, y: 0}
   hitboxSize: {x: 1, y: 1}
-  context: 0
+  context: 4
   attackSound: {fileID: 0}
   hitSound: {fileID: 0}
   animationTrigger: Attack

@@ -70,17 +70,16 @@ namespace Brawler.Combat
             hitFighters.Clear();
 
             // Position hitbox based on attack data and facing direction
-            if (Owner != null && attack != null)
-            {
+            if (Owner != null && attack != null && transform.parent != null) {
                 Vector2 offset = attack.hitboxOffset;
                 offset.x *= Owner.FacingDirection;
                 transform.localPosition = offset;
-
-                // Set size if using BoxCollider2D
-                if (hitCollider is BoxCollider2D box)
-                {
+                if (hitCollider is BoxCollider2D box) {
                     box.size = attack.hitboxSize;
                 }
+            } else if (hitCollider is BoxCollider2D box) {
+                Debug.Log($"[Hitbox] Projectile path - no repositioning. Parent={transform.parent}");
+                box.size = attack.hitboxSize;
             }
         }
 

@@ -298,12 +298,14 @@ namespace Brawler.Input {
         }
 
         private void OnLightAttackPerformed(InputAction.CallbackContext context){
+            Debug.Log("[Input] Light attack performed!");
             float bufferDuration = config != null ? config.lightAttackBufferDuration : 0.1f;
             lightAttackBufferTimer = bufferDuration; 
 
         }
 
         private void OnHeavyAttackPerformed(InputAction.CallbackContext context) {
+            //Debug.Log("[Input] Heavy attack performed!");
             float bufferDuration = config != null ? config.heavyAttackBufferDuration : 0.1f;
             heavyAttackBufferTimer = bufferDuration;
 

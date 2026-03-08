@@ -118,25 +118,14 @@ namespace Brawler.Fighter
         /// Initialize the fighter for a match.
         /// Called by GameManager when setting up fighters.
         /// </summary>
-        public virtual void Initialize(int index, PlayerInputHandler inputHandler)
-        {
+        public virtual void Initialize(int index, PlayerInputHandler inputHandler) {
             playerIndex = index;
             Input = inputHandler;
-
             Health.Initialize(index);
-
-            // Wire input to optional components
-            if (Movement != null)
-            {
-                Movement.Initialize(inputHandler);
-            }
-
-            if (Attacks != null)
-            {
-                Attacks.Initialize(inputHandler, this);
-            }
-
+            if (Movement != null) Movement.Initialize(inputHandler);
+            if (Attacks != null) Attacks.Initialize(inputHandler, this);
             OnFighterInitialized();
+
         }
 
         /// <summary>

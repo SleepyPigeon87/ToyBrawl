@@ -71,6 +71,7 @@ namespace Brawler.Fighter
         public event Action<AttackData> OnAttackStarted;
         public event Action<AttackData> OnAttackHitActive;
         public event Action OnAttackEnded;
+        public event Action OnLightAttackPressed;
         public event Action OnHeavyAttackPressed;
         public event Action OnSpecialPressed;
 
@@ -121,6 +122,8 @@ namespace Brawler.Fighter
             fighter = owner;
             hurtbox = fighter.GetComponentInChildren<Hurtbox>();
 
+            //Debug.Log($"[AttackController] Initialized with fighter: {fighter.name} at {fighter.transform.position}");
+
             if (hitbox == null)
             {
                 Debug.LogError($"[AttackController] Hitbox is missing on {gameObject.name}! Bypassing attack setup to prevent a crash.");
@@ -136,6 +139,7 @@ namespace Brawler.Fighter
 
             }
             if (!fighter.CanAct) {
+                //Debug.Log($"[AttackController] CanAct=false! Dead={fighter.IsDead} Respawning={fighter.IsRespawning} Grabbed={fighter.IsGrabbed}");
                 return;
 
             }
@@ -182,10 +186,11 @@ namespace Brawler.Fighter
                 return;
             }
 
-            if (input.LightAttackBuffered) { 
-                input.ConsumeLightAttackBuffer(); 
-                TryAttack(DetermineAttackContext()); 
-            } else if (input.HeavyAttackBuffered) { 
+            if (input.LightAttackBuffered) {
+                //Debug.Log("[Combat] Light attack branch hit!");
+                input.ConsumeLightAttackBuffer();
+                OnLightAttackPressed?.Invoke();
+        } else if (input.HeavyAttackBuffered) { 
                 input.ConsumeHeavyAttackBuffer(); 
                 OnHeavyAttackPressed?.Invoke(); 
             } else if (input.RangedAttackBuffered) { 
@@ -337,8 +342,7 @@ namespace Brawler.Fighter
                 var proj = obj.GetComponent<Projectile>();
                 if (proj != null) proj.Initialize(attack, fighter);
             } else {
-                hitbox.Activate(attack);
-
+                hitbox.Activate(attack);  // ← this was removed during debugging!
             }
 
             OnAttackHitActive?.Invoke(attack);
@@ -430,7 +434,7 @@ namespace Brawler.Fighter
             currentState = AttackState.Holding;
             HeldOpponent = victim;
 
-            Debug.Log($"[AttackController] Now holding {victim.name}. Waiting for throw input...");
+            //Debug.Log($"[AttackController] Now holding {victim.name}. Waiting for throw input...");
         }
 
         public void ForceGrab(AttackData grabData) {

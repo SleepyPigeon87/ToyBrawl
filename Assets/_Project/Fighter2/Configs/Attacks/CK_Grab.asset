@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4de7f53d4a126d40bae94e48bd75560, type: 3}
   m_Name: CK_Grab
   m_EditorClassIdentifier: 
-  attackName: New Attack
+  attackName: CK_Grab
   damage: 10
   baseKnockback: 5
   knockbackAngle: {x: 1, y: 0.5}
