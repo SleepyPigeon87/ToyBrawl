@@ -149,7 +149,7 @@
                 {
                     "name": "",
                     "id": "b1000007-0001-0001-0001-000000000001",
-                    "path": "<Keyboard>/shift",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard1",
@@ -182,7 +182,7 @@
                 {
                     "name": "",
                     "id": "0fdbbed1-4bda-45e8-9af3-c46464c28c6b",
-                    "path": "<Keyboard>/1",
+                    "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard1",
@@ -218,7 +218,7 @@
                     "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Gamepad1",
                     "action": "Ultimate",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -237,7 +237,7 @@
                 {
                     "name": "",
                     "id": "fed03b7d-ef4c-4332-b57c-ac4c42087818",
-                    "path": "<Keyboard>/3",
+                    "path": "<Keyboard>/y",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard1",
@@ -259,7 +259,7 @@
                 {
                     "name": "",
                     "id": "2b8ccfff-371e-4ea3-a22d-3bba64020121",
-                    "path": "<Keyboard>/4",
+                    "path": "<Keyboard>/u",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard1",
@@ -270,7 +270,7 @@
                 {
                     "name": "",
                     "id": "04895131-310c-4922-9255-83e429a407d7",
-                    "path": "<Keyboard>/2",
+                    "path": "<Keyboard>/t",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard1",
@@ -460,7 +460,7 @@
                 {
                     "name": "",
                     "id": "07ea1ff3-e290-4e80-8bee-73bee261b79b",
-                    "path": "<Keyboard>/z",
+                    "path": "<Keyboard>/rightCtrl",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard2",
@@ -493,7 +493,7 @@
                 {
                     "name": "",
                     "id": "fb04ad41-109d-42ee-8c99-e5b55692500d",
-                    "path": "<Keyboard>/x",
+                    "path": "<Keyboard>/o",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard2",
@@ -515,7 +515,7 @@
                 {
                     "name": "",
                     "id": "21ca4d49-0375-4158-a691-407162dd0bdd",
-                    "path": "<Keyboard>/b",
+                    "path": "<Keyboard>/rightBracket",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard2",
@@ -537,7 +537,7 @@
                 {
                     "name": "",
                     "id": "9a337c4c-29c4-4c18-aaad-eb1756ca28f4",
-                    "path": "<Keyboard>/v",
+                    "path": "<Keyboard>/leftBracket",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard2",
@@ -592,7 +592,7 @@
                 {
                     "name": "",
                     "id": "7d11f781-9110-42f2-8fba-9c4fb69f8d48",
-                    "path": "<Keyboard>/c",
+                    "path": "<Keyboard>/p",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard2",
@@ -603,10 +603,21 @@
                 {
                     "name": "",
                     "id": "5a76370c-ff97-432f-80d7-a7d27fe6120c",
-                    "path": "<Keyboard>/n",
+                    "path": "<Keyboard>/0",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard2",
+                    "action": "Range",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6d98f22d-61d9-4bf0-8ce3-1f0208733bdc",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad2",
                     "action": "Range",
                     "isComposite": false,
                     "isPartOfComposite": false

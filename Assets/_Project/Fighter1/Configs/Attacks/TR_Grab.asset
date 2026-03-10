@@ -13,20 +13,20 @@ MonoBehaviour:
   m_Name: TR_Grab
   m_EditorClassIdentifier: 
   attackName: TR_Grab
-  damage: 10
+  damage: 5
   baseKnockback: 5
   knockbackAngle: {x: 1, y: 0.5}
   projectilePrefab: {fileID: 0}
   projectileSpeed: 10
-  startupFrames: 8
+  startupFrames: 26
   activeFrames: 6
-  recoveryFrames: 15
+  recoveryFrames: 45
   hitstunDuration: 0.2
   hitstopDuration: 0.05
   hitboxOffset: {x: 1, y: 0}
-  hitboxSize: {x: 1, y: 1}
+  hitboxSize: {x: 3, y: 1}
   context: 8
   attackSound: {fileID: 0}
   hitSound: {fileID: 0}
-  animationTrigger: Attack
+  animationTrigger: Grab
   isGrab: 1

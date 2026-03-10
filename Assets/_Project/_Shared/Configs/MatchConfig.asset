@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MatchConfig
   m_EditorClassIdentifier: 
   roundsToWin: 2
-  roundStartDelay: 2
+  roundStartDelay: 0
   roundEndDelay: 1.5
   matchTimeLimit: 0
   respawnInvincibilityDuration: 2

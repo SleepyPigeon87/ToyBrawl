@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackName: TR_Robobump
   damage: 10
-  baseKnockback: 5
+  baseKnockback: 1
   knockbackAngle: {x: 1, y: 0.5}
   projectilePrefab: {fileID: 0}
   projectileSpeed: 10
-  startupFrames: 3
+  startupFrames: 12
   activeFrames: 5
   recoveryFrames: 10
   hitstunDuration: 0.2
@@ -28,5 +28,5 @@ MonoBehaviour:
   context: 4
   attackSound: {fileID: 0}
   hitSound: {fileID: 0}
-  animationTrigger: Attack
+  animationTrigger: Robobump
   isGrab: 0
