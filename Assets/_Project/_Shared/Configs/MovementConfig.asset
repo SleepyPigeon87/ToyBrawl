@@ -20,7 +20,7 @@ MonoBehaviour:
   jumpForce: 14
   jumpCutMultiplier: 0.5
   coyoteTime: 0.12
-  gravityScale: 1
+  gravityScale: 2.163
   fallGravityMultiplier: 1.6
   groundCheckDistance: 0.1
   groundLayer:
