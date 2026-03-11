@@ -32,8 +32,17 @@ namespace Brawler.Fighter {
         }
 
         protected override void OnTakeDamage(float damage) {
-            if (meter == null) return;
+            if (meter == null) {
+                Debug.Log("[Robot] meter is null in OnTakeDamage!");
+                return;
+            }
             meter.AddMeter(damage);
+        }
+
+        public override void OnAttackHit(FighterBase opponent, AttackData attack) {
+            base.OnAttackHit(opponent, attack);
+            if (meter == null) return;
+            meter.AddMeter(attack.damage * 0.3f);
         }
 
         private void OnAttackStarted(AttackData attack) {

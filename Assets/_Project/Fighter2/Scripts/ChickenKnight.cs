@@ -11,6 +11,7 @@ namespace Brawler.Fighter {
         [SerializeField] private float lungeForce = 10f;
         [SerializeField] private AttackData dodgeAttackData;
         [SerializeField] private float dodgeForce = 8f;
+        [SerializeField] private SpriteRenderer spriteRenderer;
         private MeterController meter;
         private AttackController attacks;
 
@@ -37,6 +38,11 @@ namespace Brawler.Fighter {
         public override void OnAttackHit(FighterBase opponent, AttackData attack) {
             base.OnAttackHit(opponent, attack);
             meter.AddMeter(attack.damage);
+        }
+
+        protected override void OnTakeDamage(float damage) {
+            if (meter == null) return;
+            meter.AddMeter(damage * 0.3f);
         }
 
         private void OnLightAttackPressed() {
@@ -70,13 +76,26 @@ namespace Brawler.Fighter {
         private void TriggerSpeedSlash() {
             StartCoroutine(SpeedSlashCoroutine());
         }
-
         private IEnumerator SpeedSlashCoroutine() {
             attacks.speedMultiplier = 0.3f;
-            yield return new WaitForSeconds(5f);
+
+            // Flash pink for 5 seconds
+            float elapsed = 0f;
+            float flashInterval = 0.15f;
+            Color pinkColor = new Color(1f, 0.4f, 0.7f);
+
+            while (elapsed < 5f) {
+                spriteRenderer.color = pinkColor;
+                yield return new WaitForSeconds(flashInterval);
+                spriteRenderer.color = Color.white;
+                yield return new WaitForSeconds(flashInterval);
+                elapsed += flashInterval * 2f;
+            }
+
+            // Reset
+            spriteRenderer.color = Color.white;
             attacks.speedMultiplier = 1f;
         }
-
         protected override void OnDestroy() {
             base.OnDestroy();
             if (attacks != null) {

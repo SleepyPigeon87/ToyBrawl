@@ -139,7 +139,7 @@ namespace Brawler.Fighter
 
             }
             if (!fighter.CanAct) {
-                //Debug.Log($"[AttackController] CanAct=false! Dead={fighter.IsDead} Respawning={fighter.IsRespawning} Grabbed={fighter.IsGrabbed}");
+                //Debug.Log($"[AttackController] CanAct=false! Dead={fighter.IsDead} Respawning={fighter.IsRespawning} GrabWbed={fighter.IsGrabbed}");
                 return;
 
             }
