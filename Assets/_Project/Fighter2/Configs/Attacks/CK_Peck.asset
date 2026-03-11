@@ -20,7 +20,7 @@ MonoBehaviour:
   projectileSpeed: 10
   startupFrames: 3
   activeFrames: 5
-  recoveryFrames: 8
+  recoveryFrames: 19
   hitstunDuration: 0.2
   hitstopDuration: 0.05
   hitboxOffset: {x: 1, y: 0}
@@ -28,5 +28,5 @@ MonoBehaviour:
   context: 3
   attackSound: {fileID: 0}
   hitSound: {fileID: 0}
-  animationTrigger: Attack
+  animationTrigger: Peck
   isGrab: 0

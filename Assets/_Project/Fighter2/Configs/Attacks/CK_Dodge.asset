@@ -28,5 +28,5 @@ MonoBehaviour:
   context: 0
   attackSound: {fileID: 0}
   hitSound: {fileID: 0}
-  animationTrigger: Attack
+  animationTrigger: Dodge
   isGrab: 0

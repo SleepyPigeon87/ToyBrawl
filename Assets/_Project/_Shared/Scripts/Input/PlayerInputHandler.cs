@@ -143,6 +143,29 @@ namespace Brawler.Input {
 
             }
 
+            // Restrict this cloned asset to only this player's devices.
+            // Without this, <Gamepad> bindings match ALL connected gamepads,
+            // causing both fighters to respond to every controller.
+            // Keyboard is always included (bindings are already unique per map).
+            var gamepads = Gamepad.all;
+            if (gamepads.Count > 0) {
+                InputDevice keyboard = Keyboard.current;
+                InputDevice gamepad = gamepads.Count > playerIndex
+                    ? gamepads[playerIndex] : null;
+
+                if (keyboard != null && gamepad != null)
+                    inputActions.devices = new InputDevice[] { keyboard, gamepad };
+                else if (keyboard != null)
+                    inputActions.devices = new InputDevice[] { keyboard };
+                else if (gamepad != null)
+                    inputActions.devices = new InputDevice[] { gamepad };
+
+                Debug.Log($"[InputFix] P{playerIndex + 1} devices: " +
+                    $"keyboard={keyboard?.name ?? "none"}, " +
+                    $"gamepad={gamepad?.name ?? "none"} " +
+                    $"(of {gamepads.Count} connected)", this);
+            }
+
             moveAction = playerMap.FindAction("Move");
             jumpAction = playerMap.FindAction("Jump");
             lightAttackAction = playerMap.FindAction("LightAttack");
