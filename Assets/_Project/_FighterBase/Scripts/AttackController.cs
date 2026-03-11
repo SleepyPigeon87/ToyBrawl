@@ -139,7 +139,7 @@ namespace Brawler.Fighter
 
             }
             if (!fighter.CanAct) {
-                //Debug.Log($"[AttackController] CanAct=false! Dead={fighter.IsDead} Respawning={fighter.IsRespawning} Grabbed={fighter.IsGrabbed}");
+                //Debug.Log($"[AttackController] CanAct=false! Dead={fighter.IsDead} Respawning={fighter.IsRespawning} GrabWbed={fighter.IsGrabbed}");
                 return;
 
             }
@@ -158,7 +158,6 @@ namespace Brawler.Fighter
         }
 
         private void HandleHoldingInput() {
-            Debug.Log($"[AttackController] HandleHoldingInput running, HeldOpponent={HeldOpponent?.name}");
             if (input.LightAttackBuffered) {
                 input.ConsumeLightAttackBuffer();
                 var hurtbox = HeldOpponent.GetComponentInChildren<Hurtbox>();
