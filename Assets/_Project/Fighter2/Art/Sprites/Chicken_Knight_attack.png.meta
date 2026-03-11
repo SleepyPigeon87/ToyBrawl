@@ -109,12 +109,12 @@ TextureImporter:
       name: Chicken_Knight_attack_0
       rect:
         serializedVersion: 2
-        x: 409
+        x: 0
         y: 0
-        width: 382
-        height: 771
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 1260
+        height: 1260
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -131,12 +131,12 @@ TextureImporter:
       name: Chicken_Knight_attack_1
       rect:
         serializedVersion: 2
-        x: 1669
+        x: 1260
         y: 0
-        width: 442
-        height: 801
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 1260
+        height: 1260
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -153,12 +153,12 @@ TextureImporter:
       name: Chicken_Knight_attack_2
       rect:
         serializedVersion: 2
-        x: 2929
+        x: 2520
         y: 0
-        width: 602
-        height: 741
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 1260
+        height: 1260
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -175,7 +175,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 03c4aa9099f2d3c4790a3cca38ee2078
     internalID: 0
     vertices: []
     indices: 
@@ -183,7 +183,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":3.0,"y":1.0},"gridSpriteSize":{"x":1260.0,"y":1260.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Chicken_Knight_attack_0: -6935696022758146089
       Chicken_Knight_attack_1: -622510619139431502

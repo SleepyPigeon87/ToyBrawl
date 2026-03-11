@@ -1,0 +1,500 @@
+fileFormatVersion: 2
+guid: a86202551fcf2454cb6c10ba78853d66
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7689840009553057404
+    second: Chicken_Knight_attack2_0
+  - first:
+      213: 2175254795305369529
+    second: Chicken_Knight_attack2_1
+  - first:
+      213: -8389969082839276049
+    second: Chicken_Knight_attack2_2
+  - first:
+      213: -6081344684708219287
+    second: Chicken_Knight_attack2_3
+  - first:
+      213: -3442508339215322709
+    second: Chicken_Knight_attack2_4
+  - first:
+      213: 3572296732059015034
+    second: Chicken_Knight_attack2_5
+  - first:
+      213: -8511583890163789635
+    second: Chicken_Knight_attack2_6
+  - first:
+      213: 7829343696842010086
+    second: Chicken_Knight_attack2_7
+  - first:
+      213: 4830737112886455735
+    second: Chicken_Knight_attack2_8
+  - first:
+      213: -2377728831179262857
+    second: Chicken_Knight_attack2_9
+  - first:
+      213: 6974777222375287836
+    second: Chicken_Knight_attack2_10
+  - first:
+      213: 2490288791585368486
+    second: Chicken_Knight_attack2_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 50
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Chicken_Knight_attack2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1260
+        width: 1470
+        height: 630
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 489e00bf043384590800000000000000
+      internalID: -7689840009553057404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chicken_Knight_attack2_1
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 1260
+        width: 1470
+        height: 630
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bf342a16be003e10800000000000000
+      internalID: 2175254795305369529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chicken_Knight_attack2_2
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 1260
+        width: 1470
+        height: 630
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe5ead43297d09b80800000000000000
+      internalID: -8389969082839276049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chicken_Knight_attack2_3
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 1260
+        width: 1470
+        height: 630
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 966b147ca39ba9ba0800000000000000
+      internalID: -6081344684708219287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chicken_Knight_attack2_4
+      rect:
+        serializedVersion: 2
+        x: 5880
+        y: 1260
+        width: 1470
+        height: 630
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba130c897e0c930d0800000000000000
+      internalID: -3442508339215322709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chicken_Knight_attack2_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 630
+        width: 1470
+        height: 630
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a779aa273f8539130800000000000000
+      internalID: 3572296732059015034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chicken_Knight_attack2_6
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 630
+        width: 1470
+        height: 630
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db099d65c87c0e980800000000000000
+      internalID: -8511583890163789635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chicken_Knight_attack2_7
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 630
+        width: 1470
+        height: 630
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ed26b25c9a67ac60800000000000000
+      internalID: 7829343696842010086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chicken_Knight_attack2_8
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 630
+        width: 1470
+        height: 630
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bda4e05fc93a0340800000000000000
+      internalID: 4830737112886455735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chicken_Knight_attack2_9
+      rect:
+        serializedVersion: 2
+        x: 5880
+        y: 630
+        width: 1470
+        height: 630
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 774fa5dc93c900fd0800000000000000
+      internalID: -2377728831179262857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chicken_Knight_attack2_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1470
+        height: 630
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1c2a270ee26bc060800000000000000
+      internalID: 6974777222375287836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chicken_Knight_attack2_11
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 0
+        width: 1470
+        height: 630
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a9259a36784f8220800000000000000
+      internalID: 2490288791585368486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chicken_Knight_attack2_12
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 0
+        width: 1470
+        height: 630
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdfa7c5ce3a552e44be4dd8be046bee3
+      internalID: -1691598389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chicken_Knight_attack2_13
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 0
+        width: 1470
+        height: 630
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5da33ddd622e1574787eefc20b5c1866
+      internalID: -193850836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chicken_Knight_attack2_14
+      rect:
+        serializedVersion: 2
+        x: 5880
+        y: 0
+        width: 1470
+        height: 630
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4349ec52cf10c914dac3aba24ef56cad
+      internalID: 493958325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: bf00b8a6805094c438398e20adcd7b1d
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":5.0,"y":3.0},"gridSpriteSize":{"x":1470.0,"y":630.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Chicken_Knight_attack2_0: -7689840009553057404
+      Chicken_Knight_attack2_1: 2175254795305369529
+      Chicken_Knight_attack2_10: 6974777222375287836
+      Chicken_Knight_attack2_11: 2490288791585368486
+      Chicken_Knight_attack2_12: -1691598389
+      Chicken_Knight_attack2_13: -193850836
+      Chicken_Knight_attack2_14: 493958325
+      Chicken_Knight_attack2_2: -8389969082839276049
+      Chicken_Knight_attack2_3: -6081344684708219287
+      Chicken_Knight_attack2_4: -3442508339215322709
+      Chicken_Knight_attack2_5: 3572296732059015034
+      Chicken_Knight_attack2_6: -8511583890163789635
+      Chicken_Knight_attack2_7: 7829343696842010086
+      Chicken_Knight_attack2_8: 4830737112886455735
+      Chicken_Knight_attack2_9: -2377728831179262857
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

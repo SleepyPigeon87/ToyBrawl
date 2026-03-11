@@ -142,12 +142,12 @@ TextureImporter:
       name: Chicken_Knight_Death_0
       rect:
         serializedVersion: 2
-        x: 409
+        x: 0
         y: 0
-        width: 382
-        height: 771
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 1260
+        height: 1260
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -164,12 +164,12 @@ TextureImporter:
       name: Chicken_Knight_Death_1
       rect:
         serializedVersion: 2
-        x: 1669
+        x: 1260
         y: 0
-        width: 392
-        height: 541
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 1260
+        height: 1260
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -186,12 +186,12 @@ TextureImporter:
       name: Chicken_Knight_Death_2
       rect:
         serializedVersion: 2
-        x: 2969
+        x: 2520
         y: 0
-        width: 332
-        height: 381
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 1260
+        height: 1260
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -208,12 +208,12 @@ TextureImporter:
       name: Chicken_Knight_Death_3
       rect:
         serializedVersion: 2
-        x: 5549
-        y: 199
-        width: 302
-        height: 252
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3780
+        y: 0
+        width: 1260
+        height: 1260
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -230,12 +230,12 @@ TextureImporter:
       name: Chicken_Knight_Death_4
       rect:
         serializedVersion: 2
-        x: 6809
+        x: 5040
         y: 0
-        width: 302
-        height: 251
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 1260
+        height: 1260
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -252,12 +252,12 @@ TextureImporter:
       name: Chicken_Knight_Death_5
       rect:
         serializedVersion: 2
-        x: 4279
+        x: 6300
         y: 0
-        width: 252
-        height: 171
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 1260
+        height: 1260
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -270,187 +270,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: Chicken_Knight_Death_6
-      rect:
-        serializedVersion: 2
-        x: 5599
-        y: 79
-        width: 12
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7820d06fd432fad90800000000000000
-      internalID: -7084404871082999161
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Chicken_Knight_Death_7
-      rect:
-        serializedVersion: 2
-        x: 5619
-        y: 39
-        width: 12
-        height: 122
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1ca2ca8c69326d140800000000000000
-      internalID: 4744018388000189121
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Chicken_Knight_Death_8
-      rect:
-        serializedVersion: 2
-        x: 5649
-        y: 79
-        width: 12
-        height: 102
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: de35b92b8a15a7500800000000000000
-      internalID: 394717702341219309
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Chicken_Knight_Death_9
-      rect:
-        serializedVersion: 2
-        x: 5689
-        y: 79
-        width: 12
-        height: 82
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 532e243337b097650800000000000000
-      internalID: 6231024148852957749
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Chicken_Knight_Death_10
-      rect:
-        serializedVersion: 2
-        x: 5719
-        y: 69
-        width: 12
-        height: 122
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 73c53ba2d0666e440800000000000000
-      internalID: 4964767845959556151
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Chicken_Knight_Death_11
-      rect:
-        serializedVersion: 2
-        x: 5599
-        y: 0
-        width: 12
-        height: 51
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 342e86459597410c0800000000000000
-      internalID: -4605923094317964733
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Chicken_Knight_Death_12
-      rect:
-        serializedVersion: 2
-        x: 5659
-        y: 29
-        width: 12
-        height: 42
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 05be539f3bda5a870800000000000000
-      internalID: 8693545644200422224
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Chicken_Knight_Death_13
-      rect:
-        serializedVersion: 2
-        x: 5699
-        y: 0
-        width: 12
-        height: 61
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 581ca1685416d31e0800000000000000
-      internalID: -2216508490365877883
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: b2df70e09ab4f6f4a9a37bb08afc65d9
     internalID: 0
     vertices: []
     indices: 
@@ -458,22 +282,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":6.0,"y":1.0},"gridSpriteSize":{"x":1260.0,"y":1260.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Chicken_Knight_Death_0: -625004908652921176
       Chicken_Knight_Death_1: 9130180215903788577
-      Chicken_Knight_Death_10: 4964767845959556151
-      Chicken_Knight_Death_11: -4605923094317964733
-      Chicken_Knight_Death_12: 8693545644200422224
-      Chicken_Knight_Death_13: -2216508490365877883
       Chicken_Knight_Death_2: -284497131211532055
       Chicken_Knight_Death_3: -6442810933695026312
       Chicken_Knight_Death_4: 8642698319135533359
       Chicken_Knight_Death_5: -4349751830120975464
-      Chicken_Knight_Death_6: -7084404871082999161
-      Chicken_Knight_Death_7: 4744018388000189121
-      Chicken_Knight_Death_8: 394717702341219309
-      Chicken_Knight_Death_9: 6231024148852957749
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

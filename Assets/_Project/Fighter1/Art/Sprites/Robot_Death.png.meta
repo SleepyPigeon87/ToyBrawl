@@ -1,22 +1,64 @@
 fileFormatVersion: 2
-guid: cccf8d28939755446a2700bde4a8bfd4
+guid: e365439b645ab8f4cbc49309d1d420f6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 886784009365429504
-    second: Chicken_Knight_boom_0
+      213: -8470815796385324788
+    second: Robot_Death_0
   - first:
-      213: -3552479833711570013
-    second: Chicken_Knight_boom_1
+      213: 8879089148532107926
+    second: Robot_Death_1
   - first:
-      213: -2850976797780648297
-    second: Chicken_Knight_boom_2
+      213: -4723677020026193036
+    second: Robot_Death_2
   - first:
-      213: -9121833289782511769
-    second: Chicken_Knight_boom_3
+      213: 2111260739077161919
+    second: Robot_Death_3
   - first:
-      213: 1037623731745663869
-    second: Chicken_Knight_boom_4
+      213: -2951846645753370197
+    second: Robot_Death_4
+  - first:
+      213: -2392871700822994361
+    second: Robot_Death_5
+  - first:
+      213: -3955672900989861634
+    second: Robot_Death_6
+  - first:
+      213: 7299824751809536186
+    second: Robot_Death_7
+  - first:
+      213: -845768648487141578
+    second: Robot_Death_8
+  - first:
+      213: -2514999821779012213
+    second: Robot_Death_9
+  - first:
+      213: -6755431045074502957
+    second: Robot_Death_10
+  - first:
+      213: 3761652211924864120
+    second: Robot_Death_11
+  - first:
+      213: 144615979123743776
+    second: Robot_Death_12
+  - first:
+      213: 1069075821216312985
+    second: Robot_Death_13
+  - first:
+      213: 8451757997077964475
+    second: Robot_Death_14
+  - first:
+      213: 6969982520811044158
+    second: Robot_Death_15
+  - first:
+      213: -6132403995815548073
+    second: Robot_Death_16
+  - first:
+      213: -8640343806189009833
+    second: Robot_Death_17
+  - first:
+      213: 4181857020167531614
+    second: Robot_Death_18
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -112,7 +154,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Chicken_Knight_boom_0
+      name: Robot_Death_0
       rect:
         serializedVersion: 2
         x: 0
@@ -127,14 +169,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 00d19beab5d7e4c00800000000000000
-      internalID: 886784009365429504
+      spriteID: c016faad9ed917a80800000000000000
+      internalID: -8470815796385324788
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chicken_Knight_boom_1
+      name: Robot_Death_1
       rect:
         serializedVersion: 2
         x: 1260
@@ -149,14 +191,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3a312efb96e03bec0800000000000000
-      internalID: -3552479833711570013
+      spriteID: 69a2843898cd83b70800000000000000
+      internalID: 8879089148532107926
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chicken_Knight_boom_2
+      name: Robot_Death_2
       rect:
         serializedVersion: 2
         x: 2520
@@ -171,14 +213,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 79e576125bb4f68d0800000000000000
-      internalID: -2850976797780648297
+      spriteID: 47bb9a307c0227eb0800000000000000
+      internalID: -4723677020026193036
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chicken_Knight_boom_3
+      name: Robot_Death_3
       rect:
         serializedVersion: 2
         x: 3780
@@ -193,14 +235,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7673e26d3fcb86180800000000000000
-      internalID: -9121833289782511769
+      spriteID: fb34cecc474bc4d10800000000000000
+      internalID: 2111260739077161919
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chicken_Knight_boom_4
+      name: Robot_Death_4
       rect:
         serializedVersion: 2
         x: 5040
@@ -215,8 +257,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d7b27355941666e00800000000000000
-      internalID: 1037623731745663869
+      spriteID: ba921708d1fe807d0800000000000000
+      internalID: -2951846645753370197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Death_5
+      rect:
+        serializedVersion: 2
+        x: 6300
+        y: 0
+        width: 1260
+        height: 1260
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7425c57bddfcaced0800000000000000
+      internalID: -2392871700822994361
       vertices: []
       indices: 
       edges: []
@@ -225,7 +289,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 6c25ee15b46bb8f41b7929ece97aa1f3
+    spriteID: a58e11a6b447ab74c94c11e4466730c5
     internalID: 0
     vertices: []
     indices: 
@@ -235,13 +299,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":5.0,"y":1.0},"gridSpriteSize":{"x":1260.0,"y":1260.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":6.0,"y":1.0},"gridSpriteSize":{"x":1260.0,"y":1260.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Chicken_Knight_boom_0: 886784009365429504
-      Chicken_Knight_boom_1: -3552479833711570013
-      Chicken_Knight_boom_2: -2850976797780648297
-      Chicken_Knight_boom_3: -9121833289782511769
-      Chicken_Knight_boom_4: 1037623731745663869
+      Robot_Death_0: -8470815796385324788
+      Robot_Death_1: 8879089148532107926
+      Robot_Death_2: -4723677020026193036
+      Robot_Death_3: 2111260739077161919
+      Robot_Death_4: -2951846645753370197
+      Robot_Death_5: -2392871700822994361
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

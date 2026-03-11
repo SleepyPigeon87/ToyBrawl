@@ -18,9 +18,9 @@ MonoBehaviour:
   knockbackAngle: {x: 1, y: 0.3}
   projectilePrefab: {fileID: 0}
   projectileSpeed: 10
-  startupFrames: 12
+  startupFrames: 24
   activeFrames: 8
-  recoveryFrames: 18
+  recoveryFrames: 60
   hitstunDuration: 0.2
   hitstopDuration: 0.05
   hitboxOffset: {x: 1.5, y: 0}
@@ -28,5 +28,5 @@ MonoBehaviour:
   context: 0
   attackSound: {fileID: 0}
   hitSound: {fileID: 0}
-  animationTrigger: Attack
+  animationTrigger: Slash
   isGrab: 0

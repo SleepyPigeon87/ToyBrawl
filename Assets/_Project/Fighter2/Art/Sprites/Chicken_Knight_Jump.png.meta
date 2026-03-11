@@ -115,12 +115,12 @@ TextureImporter:
       name: Chicken_Knight_Jump_0
       rect:
         serializedVersion: 2
-        x: 409
+        x: 0
         y: 0
-        width: 382
-        height: 771
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 1260
+        height: 1260
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -137,12 +137,12 @@ TextureImporter:
       name: Chicken_Knight_Jump_1
       rect:
         serializedVersion: 2
-        x: 1689
+        x: 1260
         y: 0
-        width: 382
-        height: 721
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 1260
+        height: 1260
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -159,12 +159,12 @@ TextureImporter:
       name: Chicken_Knight_Jump_2
       rect:
         serializedVersion: 2
-        x: 2939
+        x: 2520
         y: 0
-        width: 372
-        height: 881
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 1260
+        height: 1260
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -181,12 +181,12 @@ TextureImporter:
       name: Chicken_Knight_Jump_3
       rect:
         serializedVersion: 2
-        x: 4189
+        x: 3780
         y: 0
-        width: 412
-        height: 681
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 1260
+        height: 1260
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -203,12 +203,12 @@ TextureImporter:
       name: Chicken_Knight_Jump_4
       rect:
         serializedVersion: 2
-        x: 5449
+        x: 5040
         y: 0
-        width: 382
-        height: 771
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 1260
+        height: 1260
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -225,7 +225,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 0c2057e15756b26458294e5569530b12
     internalID: 0
     vertices: []
     indices: 
@@ -233,7 +233,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":5.0,"y":1.0},"gridSpriteSize":{"x":1260.0,"y":1260.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Chicken_Knight_Jump_0: 4302350709796018537
       Chicken_Knight_Jump_1: -4683015711142495089

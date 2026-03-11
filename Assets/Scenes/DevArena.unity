@@ -876,19 +876,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3117184338856817475, guid: b33bb9252f288eb4fac15798705bbd82, type: 3}
       propertyPath: m_LocalScale.x
-      value: -0.2394991
+      value: -0.23408383
       objectReference: {fileID: 0}
     - target: {fileID: 3117184338856817475, guid: b33bb9252f288eb4fac15798705bbd82, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.23783426
+      value: 0.23245662
       objectReference: {fileID: 0}
     - target: {fileID: 3117184338856817475, guid: b33bb9252f288eb4fac15798705bbd82, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.15855618
+      value: 0.15497108
       objectReference: {fileID: 0}
     - target: {fileID: 3117184338856817475, guid: b33bb9252f288eb4fac15798705bbd82, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.253
+      value: 0.282
       objectReference: {fileID: 0}
     - target: {fileID: 3117184338856817475, guid: b33bb9252f288eb4fac15798705bbd82, type: 3}
       propertyPath: m_LocalPosition.y
@@ -917,6 +917,14 @@ PrefabInstance:
     - target: {fileID: 4551747644414393507, guid: b33bb9252f288eb4fac15798705bbd82, type: 3}
       propertyPath: fighterColor.r
       value: 0.8584906
+      objectReference: {fileID: 0}
+    - target: {fileID: 4582762636441366782, guid: b33bb9252f288eb4fac15798705bbd82, type: 3}
+      propertyPath: m_Size.x
+      value: 2.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 4582762636441366782, guid: b33bb9252f288eb4fac15798705bbd82, type: 3}
+      propertyPath: m_Size.y
+      value: 3.8727293
       objectReference: {fileID: 0}
     - target: {fileID: 4582762636441366782, guid: b33bb9252f288eb4fac15798705bbd82, type: 3}
       propertyPath: m_Sprite

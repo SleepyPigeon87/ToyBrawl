@@ -121,12 +121,12 @@ TextureImporter:
       name: Chicken_Knight_grab_0
       rect:
         serializedVersion: 2
-        x: 529
+        x: 0
         y: 0
-        width: 412
-        height: 771
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 1680
+        height: 1260
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -143,12 +143,12 @@ TextureImporter:
       name: Chicken_Knight_grab_1
       rect:
         serializedVersion: 2
-        x: 2239
+        x: 1680
         y: 0
-        width: 822
-        height: 771
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 1680
+        height: 1260
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -165,12 +165,12 @@ TextureImporter:
       name: Chicken_Knight_grab_2
       rect:
         serializedVersion: 2
-        x: 3919
+        x: 3360
         y: 0
-        width: 692
-        height: 771
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 1680
+        height: 1260
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -187,12 +187,12 @@ TextureImporter:
       name: Chicken_Knight_grab_3
       rect:
         serializedVersion: 2
-        x: 5599
+        x: 5040
         y: 0
-        width: 1032
-        height: 771
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 1680
+        height: 1260
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -209,12 +209,12 @@ TextureImporter:
       name: Chicken_Knight_grab_4
       rect:
         serializedVersion: 2
-        x: 7279
+        x: 6720
         y: 0
-        width: 1102
-        height: 771
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 1680
+        height: 1260
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -231,12 +231,12 @@ TextureImporter:
       name: Chicken_Knight_grab_5
       rect:
         serializedVersion: 2
-        x: 8959
+        x: 8400
         y: 0
-        width: 822
-        height: 771
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 1680
+        height: 1260
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -253,12 +253,12 @@ TextureImporter:
       name: Chicken_Knight_grab_6
       rect:
         serializedVersion: 2
-        x: 10609
+        x: 10080
         y: 0
-        width: 412
-        height: 771
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 1680
+        height: 1260
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -275,7 +275,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: aba52660a3034c5459e1e1b1e8d43c22
     internalID: 0
     vertices: []
     indices: 
@@ -283,7 +283,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":7.0,"y":1.0},"gridSpriteSize":{"x":1680.0,"y":1260.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Chicken_Knight_grab_0: 8164360344024021274
       Chicken_Knight_grab_1: 4272089735901371602
