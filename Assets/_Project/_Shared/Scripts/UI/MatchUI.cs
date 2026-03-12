@@ -25,6 +25,15 @@ namespace Brawler.UI {
         [Header("KO Announcement")]
         [SerializeField] private TextMeshProUGUI koText;
 
+        [Header("Slow Motion")]
+        [SerializeField] private float slowMoScale = 0.2f;
+        [SerializeField] private float slowMoDuration = 0.5f;
+
+        [Header("Screen Flash")]
+        [SerializeField] private Image flashImage;
+        [SerializeField] private Color flashColor = Color.white;
+        [SerializeField] private float flashDuration = 0.3f;
+
         [Header("Timer (Optional)")]
         [Tooltip("Shows remaining match time.")]
         [SerializeField] private TextMeshProUGUI timerText;
@@ -59,6 +68,9 @@ namespace Brawler.UI {
 
             if (koText != null)
                 koText.gameObject.SetActive(false);
+
+            if (flashImage != null)
+                flashImage.gameObject.SetActive(false);
 
             if (restartButton != null)
                 restartButton.onClick.AddListener(OnRestartClicked);
@@ -159,6 +171,9 @@ namespace Brawler.UI {
 
         private void OnFighterKO(FighterKOEventArgs args) {
             StartCoroutine(KOCoroutine());
+            StartCoroutine(SlowMoCoroutine());
+            StartCoroutine(ScreenFlashCoroutine()); 
+
         }
 
         private IEnumerator KOCoroutine() {
@@ -168,6 +183,38 @@ namespace Brawler.UI {
             koText.text = "KO!";
             yield return new WaitForSecondsRealtime(announcementDuration);
             koText.gameObject.SetActive(false);
+        }
+
+        private IEnumerator SlowMoCoroutine() {
+            Time.timeScale = slowMoScale;
+            float elapsed = 0f;
+
+            while (elapsed < slowMoDuration) {
+                elapsed += Time.unscaledDeltaTime;
+                yield return null;
+            }
+
+            Time.timeScale = 1f;
+        }
+
+        private IEnumerator ScreenFlashCoroutine() {
+            if (flashImage == null) yield break;
+
+            for (int i = 0; i < 2; i++) {
+                flashImage.gameObject.SetActive(true);
+                flashImage.color = flashColor;
+
+                float elapsed = 0f;
+                while (elapsed < flashDuration) {
+                    elapsed += Time.unscaledDeltaTime;
+                    float alpha = Mathf.Lerp(1f, 0f, elapsed / flashDuration);
+                    flashImage.color = new Color(flashColor.r, flashColor.g, flashColor.b, alpha);
+                    yield return null;
+                }
+
+                flashImage.gameObject.SetActive(false);
+                yield return new WaitForSecondsRealtime(0.1f); // brief gap between flashes
+            }
         }
 
         /// <summary>
@@ -187,8 +234,9 @@ namespace Brawler.UI {
                 announcementText.text = "GAME!";
             }
         }
-
         private void OnRestartClicked() {
+            //Debug.Log("[MatchUI] Restart clicked!");
+
             if (winnerPanel != null)
                 winnerPanel.SetActive(false);
 
@@ -197,6 +245,10 @@ namespace Brawler.UI {
 
             timerText.gameObject.SetActive(false);
             timerRunning = false;
+
+            // Reset score display
+            GameEvents.OnRoundScoreChanged?.Invoke(0, 0);
+            GameEvents.OnRoundScoreChanged?.Invoke(1, 0);
 
             GameManager.Instance.StartMatch();
         }

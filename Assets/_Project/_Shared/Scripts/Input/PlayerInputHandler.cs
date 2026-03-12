@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using Brawler.Core;
 using UnityEngine.InputSystem;
 
 namespace Brawler.Input {
@@ -108,10 +110,12 @@ namespace Brawler.Input {
                 EnableInputActions();
 
             }
+            GameEvents.OnFighterKO += OnFighterKO;
         }
 
         private void OnDisable() {
             DisableInputActions();
+            GameEvents.OnFighterKO -= OnFighterKO;
 
         }
 
@@ -448,6 +452,28 @@ namespace Brawler.Input {
         public void ConsumeGrabBuffer() {
            grabBufferTimer = 0f;
 
+        }
+
+        private void OnFighterKO(FighterKOEventArgs args) {
+            if (args.PlayerIndex != playerIndex) return;
+            TriggerRumble(1f, 0.3f, 0.6f);
+        }
+
+        public void TriggerRumble(float lowFrequency, float highFrequency, float duration) {
+            if (!UsingGamepad) return;
+
+            var gamepads = Gamepad.all;
+            if (gamepads.Count <= playerIndex) return;
+
+            var gamepad = gamepads[playerIndex];
+            gamepad.SetMotorSpeeds(lowFrequency, highFrequency);
+            StartCoroutine(StopRumbleCoroutine(gamepad, duration));
+
+        }
+
+        private IEnumerator StopRumbleCoroutine(Gamepad gamepad, float duration) {
+            yield return new WaitForSecondsRealtime(duration);
+            gamepad.SetMotorSpeeds(0f, 0f);
         }
 
         private void OnDrawGizmosSelected() {

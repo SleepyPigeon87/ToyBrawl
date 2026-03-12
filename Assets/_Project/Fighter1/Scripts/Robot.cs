@@ -75,6 +75,7 @@ namespace Brawler.Fighter {
         private void OnSpecialPressed() {
             if (meter.HasEnoughMeter(meter.maxMeter)) {
                 meter.ConsumeMeter(meter.maxMeter);
+                Input.TriggerRumble(0.5f, 1f, 0.4f);
                 TriggerLongDistanceGrab();
         
             }

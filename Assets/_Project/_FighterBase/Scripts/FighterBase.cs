@@ -165,8 +165,8 @@ namespace Brawler.Fighter
         /// Respawn the fighter at the given position.
         /// Called by GameManager after a KO.
         /// </summary>
-        public virtual void Respawn(Vector2 position)
-        {
+        public virtual void Respawn(Vector2 position) {
+            Rb.bodyType = RigidbodyType2D.Dynamic;
             transform.position = position;
             Rb.linearVelocity = Vector2.zero;
             Health.Reset();
@@ -207,9 +207,18 @@ namespace Brawler.Fighter
             });
         }
 
-        private void OnDeathInternal()
-        {
+        private void OnDeathInternal() {
+            //freeze for death 
+            Rb.linearVelocity = Vector2.zero;
+            Rb.bodyType = RigidbodyType2D.Kinematic;
+
             OnKO();
+
+            GameEvents.OnFighterKO?.Invoke(new FighterKOEventArgs {
+                PlayerIndex = playerIndex,
+                ZoneType = BlastZoneType.Bottom,
+                ExitVelocity = Vector2.zero
+            });
         }
 
         // Override these methods to add custom behavior
@@ -218,7 +227,8 @@ namespace Brawler.Fighter
         protected virtual void OnTakeDamage(float damage) { }
 
         /// <summary>Called when the fighter is KO'd (enters blast zone or health depleted).</summary>
-        protected virtual void OnKO() { }
+        protected virtual void OnKO() { 
+        }
 
         /// <summary>Called when the fighter respawns.</summary>
         protected virtual void OnRespawn(Vector2 position) { }
@@ -247,13 +257,13 @@ namespace Brawler.Fighter
         /// <summary>
         /// Called when this fighter's attack hits an opponent.
         /// </summary>
-        public virtual void OnAttackHit(FighterBase opponent, AttackData attack)
-        {
-            // Default: trigger hitstop
-            if (HitstopManager.Instance != null)
-            {
-                HitstopManager.Instance.TriggerHitstop(attack.hitstopDuration);
+        public virtual void OnAttackHit(FighterBase opponent, AttackData attack) {
+            if (HitstopManager.Instance != null) {
+                float scaledHitstop = attack.hitstopDuration + (attack.damage * 0.002f);
+                HitstopManager.Instance.TriggerHitstop(scaledHitstop);
+
             }
+
         }
 
         /// <summary>

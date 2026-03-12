@@ -94,8 +94,8 @@ namespace Brawler.Combat
         /// Apply knockback from attack data.
         /// Convenience method for common use case.
         /// </summary>
-        public void ApplyKnockback(AttackData attackData, int attackerFacingDirection)
-        {
+        public void ApplyKnockback(AttackData attackData, int attackerFacingDirection) {
+            if (health.IsDead) return;
             // Calculate knockback direction based on attacker facing
             Vector2 direction = attackData.knockbackAngle;
             direction.x *= attackerFacingDirection;
