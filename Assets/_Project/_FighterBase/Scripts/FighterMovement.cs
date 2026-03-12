@@ -70,8 +70,9 @@ namespace Brawler.Fighter
 
             // Don't process movement during countdown or between rounds
             var gm = GameManager.Instance;
-            if (gm != null && gm.CurrentState != GameState.Fighting && gm.CurrentState != GameState.Waiting)
-            {
+           //ebug.Log($"[FighterMovement] Current state: {gm.CurrentState}");
+            if (gm != null && gm.CurrentState != GameState.Fighting && gm.CurrentState != GameState.Waiting) {
+                //ug.Log("[FighterMovement] Blocking movement - state: " + gm.CurrentState);
                 return;
             }
 

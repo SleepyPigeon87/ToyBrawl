@@ -141,6 +141,7 @@ namespace Brawler.Fighter
         protected virtual void Update()
         {
             if (!CanAct) return;
+            if (GameManager.Instance != null && GameManager.Instance.CurrentState != GameState.Fighting) return;
 
             UpdateFacingDirection();
         }

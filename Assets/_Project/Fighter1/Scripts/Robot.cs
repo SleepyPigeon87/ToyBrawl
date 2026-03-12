@@ -9,6 +9,8 @@ namespace Brawler.Fighter {
         [SerializeField] private AttackData longDistanceGrabData;
         [SerializeField] private AttackData lightAttackData;
         [SerializeField] private float lungeForce = 5f;
+        [SerializeField] private AttackData dodgeAttackData;
+        [SerializeField] private float dodgeForce = 4f;
 
         protected override void OnFighterInitialized() {
             meter = GetComponent<MeterController>();
@@ -43,6 +45,7 @@ namespace Brawler.Fighter {
             base.OnAttackHit(opponent, attack);
             if (meter == null) return;
             meter.AddMeter(attack.damage * 0.3f);
+
         }
 
         private void OnAttackStarted(AttackData attack) {
@@ -50,7 +53,14 @@ namespace Brawler.Fighter {
                 Rb.AddForce(new Vector2(FacingDirection * lungeForce, 0f), ForceMode2D.Impulse);
         
             }
-        
+
+            if (attack == dodgeAttackData) {
+                float dodgeDir = Input.MoveInput.x;
+                if (Mathf.Abs(dodgeDir) < 0.1f) dodgeDir = -FacingDirection;
+                Rb.AddForce(new Vector2(dodgeDir * dodgeForce, 0f), ForceMode2D.Impulse);
+
+            }
+
         }
         private void OnLightAttackPressed() {
             attacks.TryAttack(AttackContext.Neutral);

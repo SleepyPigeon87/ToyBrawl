@@ -146,6 +146,7 @@ namespace Brawler.Fighter
 
             var gm = GameManager.Instance;
             if (gm != null && gm.CurrentState != GameState.Fighting && gm.CurrentState != GameState.Waiting) {
+                //Debug.Log("[AttackController] Blocking attacks - state: " + gm.CurrentState);
                 return;
             }
 

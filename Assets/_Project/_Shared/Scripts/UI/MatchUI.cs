@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 using Brawler.Core;
 using Brawler.Fighter;
@@ -16,9 +17,13 @@ namespace Brawler.UI {
         [Tooltip("Large center text for countdown, GO!, GAME!, etc.")]
         [SerializeField] private TextMeshProUGUI announcementText;
 
-        [Header("Round Text")]
-        [Tooltip("Shows 'Round 1', 'Round 2', etc.")]
-        [SerializeField] private TextMeshProUGUI roundText;
+        [Header("Round Image")]
+        [Tooltip("Sprites for each round, index 0 = Round 1, index 1 = Round 2, etc.")]
+        [SerializeField] private Image roundImage;
+        [SerializeField] private Sprite[] roundSprites;
+
+        [Header("KO Announcement")]
+        [SerializeField] private TextMeshProUGUI koText;
 
         [Header("Timer (Optional)")]
         [Tooltip("Shows remaining match time.")]
@@ -36,6 +41,8 @@ namespace Brawler.UI {
         [Tooltip("Text showing winner name.")]
         [SerializeField] private TextMeshProUGUI winnerText;
 
+        [SerializeField] private Button restartButton;
+
         private float remainingTime;
         private bool timerRunning = false;
 
@@ -47,10 +54,20 @@ namespace Brawler.UI {
             if (winnerPanel != null)
                 winnerPanel.SetActive(false);
 
+            if (timerText != null)
+                timerText.gameObject.SetActive(false);
+
+            if (koText != null)
+                koText.gameObject.SetActive(false);
+
+            if (restartButton != null)
+                restartButton.onClick.AddListener(OnRestartClicked);
+
             // TODO STEP 1: Subscribe to game events
             GameEvents.OnRoundStart += OnRoundStart;
             GameEvents.OnGameStateChanged += OnGameStateChanged;
             GameEvents.OnMatchEnd += OnMatchEnd;
+            GameEvents.OnFighterKO += OnFighterKO;
         }
 
         private void OnDestroy() {
@@ -58,6 +75,7 @@ namespace Brawler.UI {
             GameEvents.OnRoundStart -= OnRoundStart;
             GameEvents.OnGameStateChanged -= OnGameStateChanged;
             GameEvents.OnMatchEnd -= OnMatchEnd;
+            GameEvents.OnFighterKO -= OnFighterKO;
         }
 
         private void Update() {
@@ -76,40 +94,40 @@ namespace Brawler.UI {
         /// TODO STEP 1: Subscribe to this event.
         /// </summary>
         private void OnRoundStart(int roundNumber) {
-            // Update round text
-            if (roundText != null)
-            {
-                roundText.text = $"Round {roundNumber}";
-            }
-
-            // TODO STEP 2: Start countdown coroutine
-            StartCoroutine(CountdownCoroutine());
+            StartCoroutine(CountdownCoroutine(roundNumber));
         }
 
-         //TODO STEP 2: Implement countdown coroutine
-         
-        private IEnumerator CountdownCoroutine() {
+        private IEnumerator CountdownCoroutine(int roundNumber) {
             if (announcementText == null) yield break;
 
+            // Show round banner
+            int spriteIndex = roundNumber - 1;
+            if (roundImage != null && spriteIndex < roundSprites.Length) {
+                roundImage.sprite = roundSprites[spriteIndex];
+                roundImage.gameObject.SetActive(true);
+                yield return new WaitForSecondsRealtime(announcementDuration);
+                roundImage.gameObject.SetActive(false);
+            }
+
+            // Countdown
             announcementText.gameObject.SetActive(true);
 
-            // 3
             announcementText.text = "3";
             yield return new WaitForSecondsRealtime(countdownDelay);
 
-            // 2
             announcementText.text = "2";
             yield return new WaitForSecondsRealtime(countdownDelay);
 
-            // 1
             announcementText.text = "1";
             yield return new WaitForSecondsRealtime(countdownDelay);
 
-            // GO!
             announcementText.text = "GO!";
             yield return new WaitForSecondsRealtime(announcementDuration);
 
             announcementText.gameObject.SetActive(false);
+            timerText.gameObject.SetActive(true);
+            remainingTime = 99f;
+            timerRunning = true;
         }
 
         private void HandleTimeout() {
@@ -129,9 +147,7 @@ namespace Brawler.UI {
         /// </summary>
         private void OnGameStateChanged(GameState newState) {
             switch (newState) {
-                case GameState.Fighting:
-                    remainingTime = 99f;
-                    timerRunning = true;
+                case GameState.Fighting: 
                     break;
                 case GameState.RoundEnd:
                 case GameState.MatchEnd:
@@ -139,6 +155,19 @@ namespace Brawler.UI {
                     timerRunning = false;
                     break;
             }
+        }
+
+        private void OnFighterKO(FighterKOEventArgs args) {
+            StartCoroutine(KOCoroutine());
+        }
+
+        private IEnumerator KOCoroutine() {
+            if (koText == null) yield break;
+
+            koText.gameObject.SetActive(true);
+            koText.text = "KO!";
+            yield return new WaitForSecondsRealtime(announcementDuration);
+            koText.gameObject.SetActive(false);
         }
 
         /// <summary>
@@ -157,6 +186,19 @@ namespace Brawler.UI {
                 announcementText.gameObject.SetActive(true);
                 announcementText.text = "GAME!";
             }
+        }
+
+        private void OnRestartClicked() {
+            if (winnerPanel != null)
+                winnerPanel.SetActive(false);
+
+            if (announcementText != null)
+                announcementText.gameObject.SetActive(false);
+
+            timerText.gameObject.SetActive(false);
+            timerRunning = false;
+
+            GameManager.Instance.StartMatch();
         }
 
         /// <summary>
